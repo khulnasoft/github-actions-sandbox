@@ -35,7 +35,7 @@ jobs:
       with:
         limit-access-to-actor: true
     # - uses: docker://khulnasoft/latest-changes:latest
-    - uses: khulnasoft/latest-changes@retries
+    - uses: khulnasoft/latest-changes@0.3.0
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         latest_changes_file: docs/en/docs/release-notes.md
