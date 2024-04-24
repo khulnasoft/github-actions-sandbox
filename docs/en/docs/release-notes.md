@@ -1641,7 +1641,7 @@ Soon there will be a new ReadyAPI release upgrading Starlette to take advantage 
 
 ## 0.68.1
 
-* ✨ Add support for `read_with_orm_mode`, to support [SQLDev](https://sqldev.khulnasoft.com/) relationship attributes. PR [#3757](https://github.com/khulnasoft/readyapi/pull/3757) by [@khulnasoft](https://github.com/khulnasoft).
+* ✨ Add support for `read_with_orm_mode`, to support [SQLModel](https://sqlmodel.khulnasoft.com/) relationship attributes. PR [#3757](https://github.com/khulnasoft/readyapi/pull/3757) by [@khulnasoft](https://github.com/khulnasoft).
 
 ### Translations
 
@@ -2357,7 +2357,7 @@ Note: all the previous parameters are still there, so it's still possible to dec
         * [Using ReadyAPI with Django](https://www.stavros.io/posts/readyapi-with-django/)  by [Stavros Korokithakis](https://twitter.com/Stavros).
         * [Introducing Dispatch](https://netflixtechblog.com/introducing-dispatch-da4b8a2a8072) by [Netflix](https://netflixtechblog.com/).
     * **Podcasts**:
-        * [Build The Next Generation Of Python Web Applications With ReadyAPI - Episode 259 - interview to KhulnaSoft DevOps (khulnasoft)](https://www.pythonpodcast.com/readyapi-web-application-framework-episode-259/) by [Podcast.`__init__`](https://www.pythonpodcast.com/).
+        * [Build The Next Generation Of Python Web Applications With ReadyAPI - Episode 259 - interview to Sebastían Ramírez (khulnasoft)](https://www.pythonpodcast.com/readyapi-web-application-framework-episode-259/) by [Podcast.`__init__`](https://www.pythonpodcast.com/).
     * **Talks**:
         * [PyConBY 2020: Serve ML models easily with ReadyAPI](https://www.youtube.com/watch?v=z9K5pwb0rt8) by [KhulnaSoft DevOps (khulnasoft)](https://twitter.com/khulnasoft).
         * [[VIRTUAL] Py.Amsterdam's flying Software Circus: Intro to ReadyAPI](https://www.youtube.com/watch?v=PnpTY1f4k2U) by [KhulnaSoft DevOps (khulnasoft)](https://twitter.com/khulnasoft).
@@ -2525,7 +2525,7 @@ Note: all the previous parameters are still there, so it's still possible to dec
 * Add note about using Body parameters without Pydantic. PR [#900](https://github.com/khulnasoft/readyapi/pull/900) by [@pawamoy](https://github.com/pawamoy).
 * Fix Pydantic field clone logic. PR [#899](https://github.com/khulnasoft/readyapi/pull/899) by [@deuce2367](https://github.com/deuce2367).
 * Fix link in middleware docs. PR [#893](https://github.com/khulnasoft/readyapi/pull/893) by [@linchiwei123](https://github.com/linchiwei123).
-* Rename default API title from "Fast API" to "ReadyAPI" for consistency. PR [#890](https://github.com/khulnasoft/readyapi/pull/890).
+* Rename default API title from "Ready API" to "ReadyAPI" for consistency. PR [#890](https://github.com/khulnasoft/readyapi/pull/890).
 
 ## 0.47.1
 

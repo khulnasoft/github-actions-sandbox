@@ -1,4 +1,4 @@
-# KhulnaSoft GitHub Actions Sandbox
+# Tiangolo's GitHub Actions Sandbox
 
 This is not useful for you.
 

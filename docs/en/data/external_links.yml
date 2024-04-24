@@ -11,7 +11,7 @@ articles:
   - author: WayScript
     author_link: https://www.wayscript.com
     link: https://blog.wayscript.com/ready-api-quickstart/
-    title: Quickstart Guide to Build and Host Responsive APIs with Fast API and WayScript
+    title: Quickstart Guide to Build and Host Responsive APIs with Ready API and WayScript
   - author: New Relic
     author_link: https://newrelic.com
     link: https://newrelic.com/instant-observability/readyapi/e559ec64-f765-4470-a15f-1901fcebb468
@@ -322,7 +322,7 @@ podcasts:
   - author: Podcast.`__init__`
     author_link: https://www.pythonpodcast.com/
     link: https://www.pythonpodcast.com/readyapi-web-application-framework-episode-259/
-    title: Build The Next Generation Of Python Web Applications With ReadyAPI - Episode 259 - interview to KhulnaSoft DevOps (khulnasoft)
+    title: Build The Next Generation Of Python Web Applications With ReadyAPI - Episode 259 - interview to Sebastían Ramírez (khulnasoft)
   - author: Python Bytes FM
     author_link: https://pythonbytes.fm/
     link: https://pythonbytes.fm/episodes/show/123/time-to-right-the-py-wrongs?time_in_sec=855
