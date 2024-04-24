@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # - uses: docker://khulnasoft/label-approved:0.0.2
-    - uses: khulnasoft/label-approved@main
+    - uses: khulnasoft/label-approved@0.0.4
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         debug: true
