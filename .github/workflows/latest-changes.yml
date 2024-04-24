@@ -23,7 +23,7 @@ jobs:
     - uses: actions/checkout@v4
       with:
         # To allow latest-changes to commit to the main branch
-        token: ${{ secrets.ORG_REPO_TOKEN }}
+        token: ${{ secrets.GITHUB_TOKEN }}
     - name: Dump GitHub context
       env:
         GITHUB_CONTEXT: ${{ toJson(github) }}
@@ -34,12 +34,12 @@ jobs:
       if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.debug_enabled == 'true' }}
       with:
         limit-access-to-actor: true
-    # - uses: docker://khulnasoft/latest-changes:latest
-    - uses: khulnasoft/latest-changes@retries
+    - uses: docker://khulnasoft/latest-changes:latest
+    # - uses: khulnasoft/latest-changes-action@0.3.0
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        latest_changes_file: docs/en/docs/release-notes.md
-        latest_changes_header: '# Release Notes'
+        latest_changes_action_file: docs/en/docs/release-notes.md
+        latest_changes_action_header: '# Release Notes'
         template_file: ./.github/workflows/release-notes.jinja2
         end_regex: '^## '
         debug_logs: true
