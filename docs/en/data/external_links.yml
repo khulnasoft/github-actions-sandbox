@@ -10,7 +10,7 @@ articles:
     title: Authorization on ReadyAPI with Casbin
   - author: WayScript
     author_link: https://www.wayscript.com
-    link: https://blog.wayscript.com/fast-api-quickstart/
+    link: https://blog.wayscript.com/ready-api-quickstart/
     title: Quickstart Guide to Build and Host Responsive APIs with Fast API and WayScript
   - author: New Relic
     author_link: https://newrelic.com
@@ -54,7 +54,7 @@ articles:
     title: "Serve a machine learning model using Sklearn, ReadyAPI and Docker"
   - author: Yashasvi Singh
     author_link: https://hashnode.com/@aUnicornDev
-    link: https://aunicorndev.hashnode.dev/series/supafast-api
+    link: https://aunicorndev.hashnode.dev/series/supaready-api
     title: "Building an API with ReadyAPI and Supabase and Deploying on Deta"
   - author: Navule Pavan Kumar Rao
     author_link: https://www.linkedin.com/in/navule/
@@ -297,7 +297,7 @@ articles:
   russian:
   - author: Troy Köhler
     author_link: https://www.linkedin.com/in/trkohler/
-    link: https://trkohler.com/fast-api-introduction-to-framework
+    link: https://trkohler.com/ready-api-introduction-to-framework
     title: 'ReadyAPI: знакомимся с фреймворком'
   - author: prostomarkeloff
     author_link: https://github.com/prostomarkeloff
