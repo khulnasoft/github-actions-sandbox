@@ -12,11 +12,11 @@ import mkdocs.commands.build
 import mkdocs.commands.serve
 import mkdocs.config
 import mkdocs.utils
-import typer
+import cligenius
 import yaml
 from jinja2 import Template
 
-app = typer.Typer()
+app = cligenius.Typer()
 
 mkdocs_name = "mkdocs.yml"
 
@@ -41,8 +41,8 @@ def lang_callback(lang: Optional[str]):
     if lang is None:
         return
     if not lang.isalpha() or len(lang) != 2:
-        typer.echo("Use a 2 letter language code, like: es")
-        raise typer.Abort()
+        cligenius.echo("Use a 2 letter language code, like: es")
+        raise cligenius.Abort()
     lang = lang.lower()
     return lang
 
@@ -84,7 +84,7 @@ def get_base_lang_config(lang: str):
 
 
 @app.command()
-def new_lang(lang: str = typer.Argument(..., callback=lang_callback)):
+def new_lang(lang: str = cligenius.Argument(..., callback=lang_callback)):
     """
     Generate a new docs translation directory for the language LANG.
 
@@ -92,8 +92,8 @@ def new_lang(lang: str = typer.Argument(..., callback=lang_callback)):
     """
     new_path: Path = Path("docs") / lang
     if new_path.exists():
-        typer.echo(f"The language was already created: {lang}")
-        raise typer.Abort()
+        cligenius.echo(f"The language was already created: {lang}")
+        raise cligenius.Abort()
     new_path.mkdir()
     new_config = get_base_lang_config(lang)
     new_config_path: Path = Path(new_path) / mkdocs_name
@@ -111,13 +111,13 @@ def new_lang(lang: str = typer.Argument(..., callback=lang_callback)):
     new_overrides_gitignore_path = new_path / "overrides" / ".gitignore"
     new_overrides_gitignore_path.parent.mkdir(parents=True, exist_ok=True)
     new_overrides_gitignore_path.write_text("")
-    typer.secho(f"Successfully initialized: {new_path}", color=typer.colors.GREEN)
+    cligenius.secho(f"Successfully initialized: {new_path}", color=cligenius.colors.GREEN)
     update_languages(lang=None)
 
 
 @app.command()
 def build_lang(
-    lang: str = typer.Argument(
+    lang: str = cligenius.Argument(
         ..., callback=lang_callback, autocompletion=complete_existing_lang
     )
 ):
@@ -126,9 +126,9 @@ def build_lang(
     """
     lang_path: Path = Path("docs") / lang
     if not lang_path.is_dir():
-        typer.echo(f"The language translation doesn't seem to exist yet: {lang}")
-        raise typer.Abort()
-    typer.echo(f"Building docs for: {lang}")
+        cligenius.echo(f"The language translation doesn't seem to exist yet: {lang}")
+        raise cligenius.Abort()
+    cligenius.echo(f"Building docs for: {lang}")
     build_dir_path = Path("docs_build")
     build_dir_path.mkdir(exist_ok=True)
     build_lang_path = build_dir_path / lang
@@ -210,7 +210,7 @@ def build_lang(
     subprocess.run(["mkdocs", "build", "--site-dir", build_site_dist_path], check=True)
     shutil.copytree(build_site_dist_path, dist_path, dirs_exist_ok=True)
     os.chdir(current_dir)
-    typer.secho(f"Successfully built docs for: {lang}", color=typer.colors.GREEN)
+    cligenius.secho(f"Successfully built docs for: {lang}", color=cligenius.colors.GREEN)
 
 
 index_sponsors_template = """
@@ -249,7 +249,7 @@ def generate_readme():
     """
     Generate README.md content from main index.md
     """
-    typer.echo("Generating README")
+    cligenius.echo("Generating README")
     readme_path = Path("README.md")
     new_content = generate_readme_content()
     readme_path.write_text(new_content, encoding="utf-8")
@@ -260,16 +260,16 @@ def verify_readme():
     """
     Verify README.md content from main index.md
     """
-    typer.echo("Verifying README")
+    cligenius.echo("Verifying README")
     readme_path = Path("README.md")
     generated_content = generate_readme_content()
     readme_content = readme_path.read_text("utf-8")
     if generated_content != readme_content:
-        typer.secho(
-            "README.md outdated from the latest index.md", color=typer.colors.RED
+        cligenius.secho(
+            "README.md outdated from the latest index.md", color=cligenius.colors.RED
         )
-        raise typer.Abort()
-    typer.echo("Valid README ✅")
+        raise cligenius.Abort()
+    cligenius.echo("Valid README ✅")
 
 
 @app.command()
@@ -282,20 +282,20 @@ def build_all():
     langs = [lang.name for lang in get_lang_paths() if lang.is_dir()]
     cpu_count = os.cpu_count() or 1
     process_pool_size = cpu_count * 4
-    typer.echo(f"Using process pool size: {process_pool_size}")
+    cligenius.echo(f"Using process pool size: {process_pool_size}")
     with Pool(process_pool_size) as p:
         p.map(build_lang, langs)
 
 
 def update_single_lang(lang: str):
     lang_path = docs_path / lang
-    typer.echo(f"Updating {lang_path.name}")
+    cligenius.echo(f"Updating {lang_path.name}")
     update_config(lang_path.name)
 
 
 @app.command()
 def update_languages(
-    lang: str = typer.Argument(
+    lang: str = cligenius.Argument(
         None, callback=lang_callback, autocompletion=complete_existing_lang
     )
 ):
@@ -324,20 +324,20 @@ def serve():
 
     Make sure you run the build-all command first.
     """
-    typer.echo("Warning: this is a very simple server.")
-    typer.echo("For development, use the command live instead.")
-    typer.echo("This is here only to preview a site with translations already built.")
-    typer.echo("Make sure you run the build-all command first.")
+    cligenius.echo("Warning: this is a very simple server.")
+    cligenius.echo("For development, use the command live instead.")
+    cligenius.echo("This is here only to preview a site with translations already built.")
+    cligenius.echo("Make sure you run the build-all command first.")
     os.chdir("site")
     server_address = ("", 8008)
     server = HTTPServer(server_address, SimpleHTTPRequestHandler)
-    typer.echo("Serving at: http://127.0.0.1:8008")
+    cligenius.echo("Serving at: http://127.0.0.1:8008")
     server.serve_forever()
 
 
 @app.command()
 def live(
-    lang: str = typer.Argument(
+    lang: str = cligenius.Argument(
         None, callback=lang_callback, autocompletion=complete_existing_lang
     )
 ):

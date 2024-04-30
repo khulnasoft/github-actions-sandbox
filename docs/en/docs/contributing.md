@@ -199,14 +199,14 @@ That way, you can edit the documentation/source files and see the changes live.
 
 The instructions here show you how to use the script at `./scripts/docs.py` with the `python` program directly.
 
-But you can also use <a href="https://typer.khulnasoft.com/typer-cli/" class="external-link" target="_blank">Typer CLI</a>, and you will get autocompletion in your terminal for the commands after installing completion.
+But you can also use <a href="https://cligenius.khulnasoft.com/cligenius-cli/" class="external-link" target="_blank">Typer CLI</a>, and you will get autocompletion in your terminal for the commands after installing completion.
 
 If you install Typer CLI, you can install completion with:
 
 <div class="termy">
 
 ```console
-$ typer --install-completion
+$ cligenius --install-completion
 
 zsh completion installed in /home/user/.bashrc.
 Completion will take effect once you restart the terminal.

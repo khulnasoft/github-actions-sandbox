@@ -688,7 +688,7 @@ Read more about it in the new docs: [Response Model - Return Type](https://ready
 * ⬆ Bump pypa/gh-action-pypi-publish from 1.5.1 to 1.5.2. PR [#5714](https://github.com/khulnasoft/readyapi/pull/5714) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * 👥 Update ReadyAPI People. PR [#5722](https://github.com/khulnasoft/readyapi/pull/5722) by [@github-actions[bot]](https://github.com/apps/github-actions).
 * 🔧 Update sponsors, disable course bundle. PR [#5713](https://github.com/khulnasoft/readyapi/pull/5713) by [@khulnasoft](https://github.com/khulnasoft).
-* ⬆ Update typer[all] requirement from <0.7.0,>=0.6.1 to >=0.6.1,<0.8.0. PR [#5639](https://github.com/khulnasoft/readyapi/pull/5639) by [@dependabot[bot]](https://github.com/apps/dependabot).
+* ⬆ Update cligenius[all] requirement from <0.7.0,>=0.6.1 to >=0.6.1,<0.8.0. PR [#5639](https://github.com/khulnasoft/readyapi/pull/5639) by [@dependabot[bot]](https://github.com/apps/dependabot).
 
 ## 0.88.0
 
@@ -1347,7 +1347,7 @@ This release includes upgrades to third-party packages that handle security issu
 ### Internal
 
 * 👥 Update ReadyAPI People. PR [#4752](https://github.com/khulnasoft/readyapi/pull/4752) by [@github-actions[bot]](https://github.com/apps/github-actions).
-* ➖ Temporarily remove typer-cli from dependencies and upgrade Black to unblock Pydantic CI. PR [#4754](https://github.com/khulnasoft/readyapi/pull/4754) by [@khulnasoft](https://github.com/khulnasoft).
+* ➖ Temporarily remove cligenius-cli from dependencies and upgrade Black to unblock Pydantic CI. PR [#4754](https://github.com/khulnasoft/readyapi/pull/4754) by [@khulnasoft](https://github.com/khulnasoft).
 * 🔧 Add configuration to notify Dutch translations. PR [#4702](https://github.com/khulnasoft/readyapi/pull/4702) by [@khulnasoft](https://github.com/khulnasoft).
 * 👥 Update ReadyAPI People. PR [#4699](https://github.com/khulnasoft/readyapi/pull/4699) by [@github-actions[bot]](https://github.com/apps/github-actions).
 * 🐛 Fix ReadyAPI People generation to include missing file in commit. PR [#4695](https://github.com/khulnasoft/readyapi/pull/4695) by [@khulnasoft](https://github.com/khulnasoft).
@@ -1780,7 +1780,7 @@ Soon there will be a new ReadyAPI release upgrading Starlette to take advantage 
 
 * 👥 Update ReadyAPI People. PR [#3450](https://github.com/khulnasoft/readyapi/pull/3450) by [@github-actions[bot]](https://github.com/apps/github-actions).
 * 👥 Update ReadyAPI People. PR [#3319](https://github.com/khulnasoft/readyapi/pull/3319) by [@github-actions[bot]](https://github.com/apps/github-actions).
-* ⬆ Upgrade docs development dependency on `typer-cli` to >=0.0.12 to fix conflicts. PR [#3429](https://github.com/khulnasoft/readyapi/pull/3429) by [@khulnasoft](https://github.com/khulnasoft).
+* ⬆ Upgrade docs development dependency on `cligenius-cli` to >=0.0.12 to fix conflicts. PR [#3429](https://github.com/khulnasoft/readyapi/pull/3429) by [@khulnasoft](https://github.com/khulnasoft).
 
 ## 0.65.2
 
@@ -1946,7 +1946,7 @@ Thanks to [Dima Boger](https://twitter.com/b0g3r) for the security report! 🙇�
 ### Internal
 
 * 🐛 Fix docs overrides directory for translations. PR [#2541](https://github.com/khulnasoft/readyapi/pull/2541) by [@khulnasoft](https://github.com/khulnasoft).
-* ➖ Remove Typer as a docs building dependency (covered by typer-cli) to fix pip resolver conflicts. PR [#2539](https://github.com/khulnasoft/readyapi/pull/2539) by [@khulnasoft](https://github.com/khulnasoft).
+* ➖ Remove Typer as a docs building dependency (covered by cligenius-cli) to fix pip resolver conflicts. PR [#2539](https://github.com/khulnasoft/readyapi/pull/2539) by [@khulnasoft](https://github.com/khulnasoft).
 * ✨ Add newsletter: ReadyAPI and friends. PR [#2509](https://github.com/khulnasoft/readyapi/pull/2509) by [@khulnasoft](https://github.com/khulnasoft).
 * ✨ Add new Gold Sponsor: InvestSuite 🎉. PR [#2508](https://github.com/khulnasoft/readyapi/pull/2508) by [@khulnasoft](https://github.com/khulnasoft).
 * 🔧 Add issue template configs. PR [#2476](https://github.com/khulnasoft/readyapi/pull/2476) by [@khulnasoft](https://github.com/khulnasoft).
@@ -2454,7 +2454,7 @@ Note: all the previous parameters are still there, so it's still possible to dec
 * Update and simplify translations docs. PR [#1171](https://github.com/khulnasoft/readyapi/pull/1171).
 * Update development of ReadyAPI docs, set address to `127.0.0.1` to improve Windows support. PR [#1169](https://github.com/khulnasoft/readyapi/pull/1169) by [@mariacamilagl](https://github.com/mariacamilagl).
 * Add support for docs translations. New docs: [Development - Contributing: Docs: Translations](https://readyapi.khulnasoft.com/contributing/#translations). PR [#1168](https://github.com/khulnasoft/readyapi/pull/1168).
-* Update terminal styles in docs and add note about [**Typer**, the ReadyAPI of CLIs](https://typer.khulnasoft.com/). PR [#1139](https://github.com/khulnasoft/readyapi/pull/1139).
+* Update terminal styles in docs and add note about [**Typer**, the ReadyAPI of CLIs](https://cligenius.khulnasoft.com/). PR [#1139](https://github.com/khulnasoft/readyapi/pull/1139).
 
 ## 0.52.0
 
