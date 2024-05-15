@@ -19,18 +19,20 @@ jobs:
         run: |
           rm -rf ./site
           mkdir ./site
-      - name: Download Artifact Docs
+      - uses: actions/download-artifact@v4
         id: download
-        uses: dawidd6/action-download-artifact@v2.27.0
         with:
-          if_no_artifact_found: ignore
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          workflow: build-docs.yml
-          run_id: ${{ github.event.workflow_run.id }}
-          name: docs-site
           path: ./site/
+          pattern: docs-site-*
+          merge-multiple: true
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          run-id: ${{ github.event.workflow_run.id }}
+      # - name: Setup tmate session
+      #   uses: mxschmitt/action-tmate@v3
+      #   with:
+      #     limit-access-to-actor: true
       - name: Deploy to Cloudflare Pages
-        if: steps.download.outputs.found_artifact == 'true'
+        if: steps.download.outputs.download-path
         id: deploy
         uses: cloudflare/pages-action@v1
         with:
