@@ -16,7 +16,7 @@ import cligenius
 import yaml
 from jinja2 import Template
 
-app = cligenius.Typer()
+app = cligenius.Cligenius()
 
 mkdocs_name = "mkdocs.yml"
 
