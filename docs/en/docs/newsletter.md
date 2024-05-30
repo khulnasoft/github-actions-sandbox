@@ -1,5 +1,5 @@
 # ReadyAPI and friends newsletter
 
-<iframe data-w-type="embedded" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://xr4n4.mjt.lu/wgt/xr4n4/hj5/form?c=40a44fa4" width="100%" style="height: 0;"></iframe>
+<iframe class="mj-w-res-iframe" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://app.mailjet.com/widget/iframe/6gQ4/GDo" width="100%"></iframe>
 
-<script type="text/javascript" src="https://app.mailjet.com/pas-nc-embedded-v1.js"></script>
+<script type="text/javascript" src="https://app.mailjet.com/statics/js/iframeResizer.min.js"></script>

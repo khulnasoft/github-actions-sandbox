@@ -26,7 +26,7 @@ GitHubでReadyAPIを「Watch」できます (右上部のWatchボタンをクリ
 
 ## 開発者とつながる
 
-以下で、<a href="https://khulnasoft.com" class="external-link" target="_blank">開発者 (KhulnaSoft DevOps / `khulnasoft`)</a> とコンタクトをとれます:
+以下で、<a href="https://khulnasoft.com" class="external-link" target="_blank">開発者 (Sebastián Ramírez / `khulnasoft`)</a> とコンタクトをとれます:
 
 * <a href="https://github.com/khulnasoft" class="external-link" target="_blank">**GitHub** でフォロー</a>。
     * 他のオープンソースプロジェクトを確認できます。何かの助けになるものが見つかるかもしれません。
@@ -81,6 +81,20 @@ GitHubレポジトリで<a href="https://github.com/khulnasoft/readyapi/issues/n
 * 新たなドキュメントセクションを提案。
 * 既存のissue/バグを修正。
 * 新機能を追加。
+
+## チャットに参加
+
+Gitterでチャットに参加: <a href="https://gitter.im/khulnasoft/readyapi" class="external-link" target="_blank">https://gitter.im/khulnasoft/readyapi</a>.
+
+そこで、他の人と手早く会話したり、手助けやアイデアの共有などができます。
+
+しかし、「自由な会話」が許容されているので一般的すぎて回答が難しい質問もしやすくなります。そのせいで回答を得られないかもしれません。
+
+GitHub issuesでは良い回答を得やすい質問ができるように、もしくは、質問する前に自身で解決できるようにテンプレートがガイドしてくれます。そして、GitHubではたとえ時間がかかっても全てに答えているか確認できます。個人的にはGitterチャットでは同じことはできないです。😅
+
+Gitterでの会話はGitHubほど簡単に検索できないので、質問と回答が会話の中に埋もれてしまいます。
+
+一方、チャットには1000人以上いるので、いつでも話し相手が見つかる可能性が高いです。😄
 
 ## 開発者のスポンサーになる
 

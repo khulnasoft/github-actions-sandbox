@@ -4,11 +4,11 @@ First, you might want to see the basic ways to [help ReadyAPI and get help](help
 
 ## Developing
 
-If you already cloned the <a href="https://github.com/khulnasoft/readyapi" class="external-link" target="_blank">readyapi repository</a> and you want to deep dive in the code, here are some guidelines to set up your environment.
+If you already cloned the repository and you know that you need to deep dive in the code, here are some guidelines to set up your environment.
 
 ### Virtual environment with `venv`
 
-You can create an isolated virtual local environment in a directory using Python's `venv` module. Let's do this in the cloned repository (where the `requirements.txt` is):
+You can create a virtual environment in a directory using Python's `venv` module:
 
 <div class="termy">
 
@@ -18,7 +18,7 @@ $ python -m venv env
 
 </div>
 
-That will create a directory `./env/` with the Python binaries, and then you will be able to install packages for that local environment.
+That will create a directory `./env/` with the Python binaries and then you will be able to install packages for that isolated environment.
 
 ### Activate the environment
 
@@ -84,7 +84,7 @@ To check it worked, use:
 
 If it shows the `pip` binary at `env/bin/pip` then it worked. 🎉
 
-Make sure you have the latest pip version on your local environment to avoid errors on the next steps:
+Make sure you have the latest pip version on your virtual environment to avoid errors on the next steps:
 
 <div class="termy">
 
@@ -101,7 +101,7 @@ $ python -m pip install --upgrade pip
 
     This makes sure that if you use a terminal program installed by that package, you use the one from your local environment and not any other that could be installed globally.
 
-### Install requirements using pip
+### pip
 
 After activating the environment as described above:
 
@@ -117,20 +117,20 @@ $ pip install -r requirements.txt
 
 It will install all the dependencies and your local ReadyAPI in your local environment.
 
-### Using your local ReadyAPI
+#### Using your local ReadyAPI
 
-If you create a Python file that imports and uses ReadyAPI, and run it with the Python from your local environment, it will use your cloned local ReadyAPI source code.
+If you create a Python file that imports and uses ReadyAPI, and run it with the Python from your local environment, it will use your local ReadyAPI source code.
 
 And if you update that local ReadyAPI source code when you run that Python file again, it will use the fresh version of ReadyAPI you just edited.
 
 That way, you don't have to "install" your local version to be able to test every change.
 
 !!! note "Technical Details"
-    This only happens when you install using this included `requirements.txt` instead of running `pip install readyapi` directly.
+    This only happens when you install using this included `requiements.txt` instead of installing `pip install readyapi` directly.
 
-    That is because inside the `requirements.txt` file, the local version of ReadyAPI is marked to be installed in "editable" mode, with the `-e` option.
+    That is because inside of the `requirements.txt` file, the local version of ReadyAPI is marked to be installed in "editable" mode, with the `-e` option.
 
-### Format the code
+### Format
 
 There is a script that you can run that will format and clean all your code:
 
@@ -149,62 +149,6 @@ For it to sort them correctly, you need to have ReadyAPI installed locally in yo
 ## Docs
 
 First, make sure you set up your environment as described above, that will install all the requirements.
-
-### Docs live
-
-During local development, there is a script that builds the site and checks for any changes, live-reloading:
-
-<div class="termy">
-
-```console
-$ python ./scripts/docs.py live
-
-<span style="color: green;">[INFO]</span> Serving on http://127.0.0.1:8008
-<span style="color: green;">[INFO]</span> Start watching changes
-<span style="color: green;">[INFO]</span> Start detecting changes
-```
-
-</div>
-
-It will serve the documentation on `http://127.0.0.1:8008`.
-
-That way, you can edit the documentation/source files and see the changes live.
-
-!!! tip
-    Alternatively, you can perform the same steps that scripts does manually.
-
-    Go into the language directory, for the main docs in English it's at `docs/en/`:
-
-    ```console
-    $ cd docs/en/
-    ```
-
-    Then run `mkdocs` in that directory:
-
-    ```console
-    $ mkdocs serve --dev-addr 8008
-    ```
-
-#### Cligenius CLI (optional)
-
-The instructions here show you how to use the script at `./scripts/docs.py` with the `python` program directly.
-
-But you can also use <a href="https://cligenius.khulnasoft.com/cligenius-cli/" class="external-link" target="_blank">Cligenius CLI</a>, and you will get autocompletion in your terminal for the commands after installing completion.
-
-If you install Cligenius CLI, you can install completion with:
-
-<div class="termy">
-
-```console
-$ cligenius --install-completion
-
-zsh completion installed in /home/user/.bashrc.
-Completion will take effect once you restart the terminal.
-```
-
-</div>
-
-### Docs Structure
 
 The documentation uses <a href="https://www.mkdocs.org/" class="external-link" target="_blank">MkDocs</a>.
 
@@ -227,13 +171,50 @@ And those Python files are included/injected in the documentation when generatin
 
 Most of the tests actually run against the example source files in the documentation.
 
-This helps to make sure that:
+This helps making sure that:
 
-* The documentation is up-to-date.
+* The documentation is up to date.
 * The documentation examples can be run as is.
 * Most of the features are covered by the documentation, ensured by test coverage.
 
-#### Apps and docs at the same time
+During local development, there is a script that builds the site and checks for any changes, live-reloading:
+
+<div class="termy">
+
+```console
+$ python ./scripts/docs.py live
+
+<span style="color: green;">[INFO]</span> Serving on http://127.0.0.1:8008
+<span style="color: green;">[INFO]</span> Start watching changes
+<span style="color: green;">[INFO]</span> Start detecting changes
+```
+
+</div>
+
+It will serve the documentation on `http://127.0.0.1:8008`.
+
+That way, you can edit the documentation/source files and see the changes live.
+
+#### Cligenius CLI (optional)
+
+The instructions here show you how to use the script at `./scripts/docs.py` with the `python` program directly.
+
+But you can also use <a href="https://cligenius.khulnasoft.com/cligenius-cli/" class="external-link" target="_blank">Cligenius CLI</a>, and you will get autocompletion in your terminal for the commands after installing completion.
+
+If you install Cligenius CLI, you can install completion with:
+
+<div class="termy">
+
+```console
+$ cligenius --install-completion
+
+zsh completion installed in /home/user/.bashrc.
+Completion will take effect once you restart the terminal.
+```
+
+</div>
+
+### Apps and docs at the same time
 
 If you run the examples with, e.g.:
 
@@ -257,20 +238,26 @@ Here are the steps to help with translations.
 
 #### Tips and guidelines
 
-* Check the currently <a href="https://github.com/khulnasoft/readyapi/pulls" class="external-link" target="_blank">existing pull requests</a> for your language. You can filter the pull requests by the ones with the label for your language. For example, for Spanish, the label is <a href="https://github.com/khulnasoft/readyapi/pulls?q=is%3Aopen+sort%3Aupdated-desc+label%3Alang-es+label%3Aawaiting-review" class="external-link" target="_blank">`lang-es`</a>.
-
-* Review those pull requests, requesting changes or approving them. For the languages I don't speak, I'll wait for several others to review the translation before merging.
+* Check the currently <a href="https://github.com/khulnasoft/readyapi/pulls" class="external-link" target="_blank">existing pull requests</a> for your language and add reviews requesting changes or approving them.
 
 !!! tip
     You can <a href="https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request" class="external-link" target="_blank">add comments with change suggestions</a> to existing pull requests.
 
     Check the docs about <a href="https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-request-reviews" class="external-link" target="_blank">adding a pull request review</a> to approve it or request changes.
 
-* Check if there's a <a href="https://github.com/khulnasoft/readyapi/discussions/categories/translations" class="external-link" target="_blank">GitHub Discussion</a> to coordinate translations for your language. You can subscribe to it, and when there's a new pull request to review, an automatic comment will be added to the discussion.
+* Check in the <a href="https://github.com/khulnasoft/readyapi/issues" class="external-link" target="_blank">issues</a> to see if there's one coordinating translations for your language.
 
-* If you translate pages, add a single pull request per page translated. That will make it much easier for others to review it.
+* Add a single pull request per page translated. That will make it much easier for others to review it.
 
-* To check the 2-letter code for the language you want to translate, you can use the table <a href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes" class="external-link" target="_blank">List of ISO 639-1 codes</a>.
+For the languages I don't speak, I'll wait for several others to review the translation before merging.
+
+* You can also check if there are translations for your language and add a review to them, that will help me know that the translation is correct and I can merge it.
+
+* Use the same Python examples and only translate the text in the docs. You don't have to change anything for this to work.
+
+* Use the same images, file names, and links. You don't have to change anything for it to work.
+
+* To check the 2-letter code for the language you want to translate you can use the table <a href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes" class="external-link" target="_blank">List of ISO 639-1 codes</a>.
 
 #### Existing language
 
@@ -296,24 +283,11 @@ $ python ./scripts/docs.py live es
 
 </div>
 
-!!! tip
-    Alternatively, you can perform the same steps that scripts does manually.
-
-    Go into the language directory, for the Spanish translations it's at `docs/es/`:
-
-    ```console
-    $ cd docs/es/
-    ```
-
-    Then run `mkdocs` in that directory:
-
-    ```console
-    $ mkdocs serve --dev-addr 8008
-    ```
-
 Now you can go to <a href="http://127.0.0.1:8008" class="external-link" target="_blank">http://127.0.0.1:8008</a> and see your changes live.
 
-You will see that every language has all the pages. But some pages are not translated and have an info box at the top, about the missing translation.
+If you look at the ReadyAPI docs website, you will see that every language has all the pages. But some pages are not translated and have a notification about the missing translation.
+
+But when you run it locally like this, you will only see the pages that are already translated.
 
 Now let's say that you want to add a translation for the section [Features](features.md){.internal-link target=_blank}.
 
@@ -332,7 +306,47 @@ docs/es/docs/features.md
 !!! tip
     Notice that the only change in the path and file name is the language code, from `en` to `es`.
 
-If you go to your browser you will see that now the docs show your new section (the info box at the top is gone). 🎉
+* Now open the MkDocs config file for English at:
+
+```
+docs/en/mkdocs.yml
+```
+
+* Find the place where that `docs/features.md` is located in the config file. Somewhere like:
+
+```YAML hl_lines="8"
+site_name: ReadyAPI
+# More stuff
+nav:
+- ReadyAPI: index.md
+- Languages:
+  - en: /
+  - es: /es/
+- features.md
+```
+
+* Open the MkDocs config file for the language you are editing, e.g.:
+
+```
+docs/es/mkdocs.yml
+```
+
+* Add it there at the exact same location it was for English, e.g.:
+
+```YAML hl_lines="8"
+site_name: ReadyAPI
+# More stuff
+nav:
+- ReadyAPI: index.md
+- Languages:
+  - en: /
+  - es: /es/
+- features.md
+```
+
+Make sure that if there are other entries, the new entry with your translation is exactly in the same order as in the English version.
+
+If you go to your browser you will see that now the docs show your new section. 🎉
 
 Now you can translate it all and see how it looks as you save the file.
 
@@ -353,32 +367,55 @@ The next step is to run the script to generate a new translation directory:
 $ python ./scripts/docs.py new-lang ht
 
 Successfully initialized: docs/ht
+Updating ht
+Updating en
 ```
 
 </div>
 
 Now you can check in your code editor the newly created directory `docs/ht/`.
 
-That command created a file `docs/ht/mkdocs.yml` with a simple config that inherits everything from the `en` version:
+!!! tip
+    Create a first pull request with just this, to set up the configuration for the new language, before adding translations.
 
-```yaml
-INHERIT: ../en/mkdocs.yml
+    That way others can help with other pages while you work on the first one. 🚀
+
+Start by translating the main page, `docs/ht/index.md`.
+
+Then you can continue with the previous instructions, for an "Existing Language".
+
+##### New Language not supported
+
+If when running the live server script you get an error about the language not being supported, something like:
+
+```
+ raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: partials/language/xx.html
 ```
 
-!!! tip
-    You could also simply create that file with those contents manually.
+That means that the theme doesn't support that language (in this case, with a fake 2-letter code of `xx`).
 
-That command also created a dummy file `docs/ht/index.md` for the main page, you can start by translating that one.
+But don't worry, you can set the theme language to English and then translate the content of the docs.
 
-You can continue with the previous instructions for an "Existing Language" for that process.
+If you need to do that, edit the `mkdocs.yml` for your new language, it will have something like:
 
-You can make the first pull request with those two files, `docs/ht/mkdocs.yml` and `docs/ht/index.md`. 🎉
+```YAML hl_lines="5"
+site_name: ReadyAPI
+# More stuff
+theme:
+  # More stuff
+  language: xx
+```
+
+Change that language from `xx` (from your language code) to `en`.
+
+Then you can start the live server again.
 
 #### Preview the result
 
-As already mentioned above, you can use the `./scripts/docs.py` with the `live` command to preview the results (or `mkdocs serve`).
+When you use the script at `./scripts/docs.py` with the `live` command it only shows the files and translations available for the current language.
 
-Once you are done, you can also test it all as it would look online, including all the other languages.
+But once you are done, you can test it all as it would look online.
 
 To do that, first build all the docs:
 
@@ -388,14 +425,19 @@ To do that, first build all the docs:
 // Use the command "build-all", this will take a bit
 $ python ./scripts/docs.py build-all
 
+Updating es
+Updating en
 Building docs for: en
 Building docs for: es
 Successfully built docs for: es
+Copying en index.md to README.md
 ```
 
 </div>
 
-This builds all those independent MkDocs sites for each language, combines them, and generates the final output at `./site/`.
+That generates all the docs at `./docs_build/` for each language. This includes adding any files with missing translations, with a note saying that "this file doesn't have a translation yet". But you don't have to do anything with that directory.
+
+Then it builds all those independent MkDocs sites for each language, combines them, and generates the final output at `./site/`.
 
 Then you can serve that with the command `serve`:
 
@@ -412,25 +454,6 @@ Serving at: http://127.0.0.1:8008
 ```
 
 </div>
-
-#### Translation specific tips and guidelines
-
-* Translate only the Markdown documents (`.md`). Do not translate the code examples at `./docs_src`.
-
-* In code blocks within the Markdown document, translate comments (`# a comment`), but leave the rest unchanged.
-
-* Do not change anything enclosed in "``" (inline code).
-
-* In lines starting with `===` or `!!!`, translate only the ` "... Text ..."` part. Leave the rest unchanged.
-
-* You can translate info boxes like `!!! warning` with for example `!!! warning "Achtung"`. But do not change the word immediately after the `!!!`, it determines the color of the info box.
-
-* Do not change the paths in links to images, code files, Markdown documents.
-
-* However, when a Markdown document is translated, the `#hash-parts` in links to its headings may change. Update these links if possible.
-    * Search for such links in the translated document using the regex `#[^# ]`.
-    * Search in all documents already translated into your language for `your-translated-document.md`. For example VS Code has an option "Edit" -> "Find in Files".
-    * When translating a document, do not "pre-translate" `#hash-parts` that link to headings in untranslated documents.
 
 ## Tests
 
