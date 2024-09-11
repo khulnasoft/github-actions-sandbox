@@ -1,6 +1,6 @@
 # Concurrencia y async / await
 
-Detalles sobre la sintaxis `async def` para *path operation functions* y un poco de información sobre código asíncrono, concurrencia y paralelismo.
+Detalles sobre la sintaxis `async def` para _path operation functions_ y un poco de información sobre código asíncrono, concurrencia y paralelismo.
 
 ## ¿Tienes prisa?
 
@@ -12,7 +12,7 @@ Si estás utilizando libraries de terceros que te dicen que las llames con `awai
 results = await some_library()
 ```
 
-Entonces declara tus *path operation functions* con `async def` de la siguiente manera:
+Entonces declara tus _path operation functions_ con `async def` de la siguiente manera:
 
 ```Python hl_lines="2"
 @app.get('/')
@@ -22,11 +22,11 @@ async def read_results():
 ```
 
 !!! note "Nota"
-    Solo puedes usar `await` dentro de funciones creadas con `async def`.
+Solo puedes usar `await` dentro de funciones creadas con `async def`.
 
 ---
 
-Si estás utilizando libraries de terceros que se comunican con algo (una base de datos, una API, el sistema de archivos, etc.) y no tienes soporte para `await` (este es el caso para la mayoría de las libraries de bases de datos), declara tus *path operation functions* de forma habitual, con solo `def`, de la siguiente manera:
+Si estás utilizando libraries de terceros que se comunican con algo (una base de datos, una API, el sistema de archivos, etc.) y no tienes soporte para `await` (este es el caso para la mayoría de las libraries de bases de datos), declara tus _path operation functions_ de forma habitual, con solo `def`, de la siguiente manera:
 
 ```Python hl_lines="2"
 @app.get('/')
@@ -45,7 +45,7 @@ Si simplemente no lo sabes, usa `def` normal.
 
 ---
 
-**Nota**: puedes mezclar `def` y `async def` en tus *path operation functions* tanto como lo necesites y definir cada una utilizando la mejor opción para ti. ReadyAPI hará lo correcto con ellos.
+**Nota**: puedes mezclar `def` y `async def` en tus _path operation functions_ tanto como lo necesites y definir cada una utilizando la mejor opción para ti. ReadyAPI hará lo correcto con ellos.
 
 De todos modos, en cualquiera de los casos anteriores, ReadyAPI seguirá funcionando de forma asíncrona y será extremadamente rápido.
 
@@ -57,13 +57,13 @@ Las versiones modernas de Python tienen soporte para **"código asíncrono"** us
 
 Veamos esa frase por partes en las secciones siguientes:
 
-* **Código Asíncrono**
-* **`async` y `await`**
-* **Coroutines**
+- **Código Asíncrono**
+- **`async` y `await`**
+- **Coroutines**
 
 ## Código Asíncrono
 
-El código asíncrono sólo significa que el lenguaje 💬 tiene una manera de decirle al sistema / programa 🤖 que, en algún momento del código, 🤖 tendrá que esperar a que *algo más* termine en otro sitio. Digamos que ese *algo más* se llama, por ejemplo, "archivo lento" 📝.
+El código asíncrono sólo significa que el lenguaje 💬 tiene una manera de decirle al sistema / programa 🤖 que, en algún momento del código, 🤖 tendrá que esperar a que _algo más_ termine en otro sitio. Digamos que ese _algo más_ se llama, por ejemplo, "archivo lento" 📝.
 
 Durante ese tiempo, el sistema puede hacer otras cosas, mientras "archivo lento" 📝 termina.
 
@@ -73,14 +73,14 @@ Luego, 🤖 cogerá la primera tarea finalizada (digamos, nuestro "archivo lento
 
 Esa "espera de otra cosa" normalmente se refiere a operaciones <abbr title = "Input and Output, en español: Entrada y Salida.">I/O</abbr> que son relativamente "lentas" (en relación a la velocidad del procesador y memoria RAM), como por ejemplo esperar por:
 
-* los datos de cliente que se envían a través de la red
-* los datos enviados por tu programa para ser recibidos por el cliente a través de la red
-* el contenido de un archivo en disco para ser leído por el sistema y entregado al programa
-* los contenidos que tu programa da al sistema para ser escritos en disco
-* una operación relacionada con una API remota
-* una operación de base de datos
-* el retorno de resultados de una consulta de base de datos
-* etc.
+- los datos de cliente que se envían a través de la red
+- los datos enviados por tu programa para ser recibidos por el cliente a través de la red
+- el contenido de un archivo en disco para ser leído por el sistema y entregado al programa
+- los contenidos que tu programa da al sistema para ser escritos en disco
+- una operación relacionada con una API remota
+- una operación de base de datos
+- el retorno de resultados de una consulta de base de datos
+- etc.
 
 Como el tiempo de ejecución se consume principalmente al esperar a operaciones de <abbr title = "Input and Output">I/O</abbr>, las llaman operaciones "<abbr title="atadas a Entrada y Salida">I/O bound</abbr>".
 
@@ -96,7 +96,7 @@ El concepto de código **asíncrono** descrito anteriormente a veces también se
 
 **Concurrencia** y **paralelismo** ambos se relacionan con "cosas diferentes que suceden más o menos al mismo tiempo".
 
-Pero los detalles entre *concurrencia* y *paralelismo* son bastante diferentes.
+Pero los detalles entre _concurrencia_ y _paralelismo_ son bastante diferentes.
 
 Para entender las diferencias, imagina la siguiente historia sobre hamburguesas:
 
@@ -136,7 +136,7 @@ Tú y esa persona 😍 se comen las hamburguesas 🍔 y la pasan genial ✨.
 <img src="https://readyapi.khulnasoft.com/img/async/concurrent-burgers/concurrent-burgers-07.png" alt="illustration">
 
 !!! info
-     Las ilustraciones fueron creados por <a href="https://www.instagram.com/ketrinadrawsalot" class="external-link" target="_blank">Ketrina Thompson</a>. 🎨
+Las ilustraciones fueron creados por <a href="https://www.instagram.com/ketrinadrawsalot" class="external-link" target="_blank">Ketrina Thompson</a>. 🎨
 
 ---
 
@@ -199,7 +199,7 @@ Sólo las comes y listo 🍔 ⏹.
 No has hablado ni coqueteado mucho, ya que has pasado la mayor parte del tiempo esperando 🕙 frente al mostrador 😞.
 
 !!! info
-     Las ilustraciones fueron creados por <a href="https://www.instagram.com/ketrinadrawsalot" class="external-link" target="_blank">Ketrina Thompson</a>. 🎨
+Las ilustraciones fueron creados por <a href="https://www.instagram.com/ketrinadrawsalot" class="external-link" target="_blank">Ketrina Thompson</a>. 🎨
 
 ---
 
@@ -257,7 +257,7 @@ Entonces, para explicar eso, imagina la siguiente historia corta:
 
 > Tienes que limpiar una casa grande y sucia.
 
-*Sí, esa es toda la historia*.
+_Sí, esa es toda la historia_.
 
 ---
 
@@ -279,10 +279,10 @@ Ejemplos típicos de operaciones dependientes de CPU son cosas que requieren un 
 
 Por ejemplo:
 
-* **Audio** o **procesamiento de imágenes**.
-* **Visión por computadora**: una imagen está compuesta de millones de píxeles, cada píxel tiene 3 valores / colores, procesamiento que normalmente requiere calcular algo en esos píxeles, todo al mismo tiempo.
-* **Machine Learning**: normalmente requiere muchas multiplicaciones de "matrices" y "vectores". Imagina en una enorme hoja de cálculo con números y tener que multiplicarlos todos al mismo tiempo.
-* **Deep Learning**: este es un subcampo de Machine Learning, por lo tanto, aplica lo mismo. Es solo que no hay una sola hoja de cálculo de números para multiplicar, sino un gran conjunto de ellas, y en muchos casos, usa un procesador especial para construir y / o usar esos modelos.
+- **Audio** o **procesamiento de imágenes**.
+- **Visión por computadora**: una imagen está compuesta de millones de píxeles, cada píxel tiene 3 valores / colores, procesamiento que normalmente requiere calcular algo en esos píxeles, todo al mismo tiempo.
+- **Machine Learning**: normalmente requiere muchas multiplicaciones de "matrices" y "vectores". Imagina en una enorme hoja de cálculo con números y tener que multiplicarlos todos al mismo tiempo.
+- **Deep Learning**: este es un subcampo de Machine Learning, por lo tanto, aplica lo mismo. Es solo que no hay una sola hoja de cálculo de números para multiplicar, sino un gran conjunto de ellas, y en muchos casos, usa un procesador especial para construir y / o usar esos modelos.
 
 ### Concurrencia + Paralelismo: Web + Machine Learning
 
@@ -292,7 +292,7 @@ Pero también puedes aprovechar los beneficios del paralelismo y el multiprocesa
 
 Eso, más el simple hecho de que Python es el lenguaje principal para **Data Science**, Machine Learning y especialmente Deep Learning, hacen de ReadyAPI una muy buena combinación para las API y aplicaciones web de Data Science / Machine Learning (entre muchas otras).
 
-Para ver cómo lograr este paralelismo en producción, consulta la sección sobre [Despliegue](deployment/index.md){.internal-link target=_blank}.
+Para ver cómo lograr este paralelismo en producción, consulta la sección sobre [Despliegue](deployment/index.md){.internal-link target=\_blank}.
 
 ## `async` y `await`
 
@@ -334,7 +334,7 @@ hamburguesas = get_burgers (2)
 
 ---
 
-Por lo tanto, si estás utilizando una library que te dice que puedes llamarla con `await`, debes crear las *path operation functions* que la usan con `async def`, como en:
+Por lo tanto, si estás utilizando una library que te dice que puedes llamarla con `await`, debes crear las _path operation functions_ que la usan con `async def`, como en:
 
 ```Python hl_lines="2-3"
 @app.get('/burgers')
@@ -351,7 +351,7 @@ Pero al mismo tiempo, las funciones definidas con `async def` deben ser "esperad
 
 Entonces, relacionado con la paradoja del huevo y la gallina, ¿cómo se llama a la primera función `async`?
 
-Si estás trabajando con **ReadyAPI** no tienes que preocuparte por eso, porque esa "primera" función será tu *path operation function*, y ReadyAPI sabrá cómo hacer lo pertinente.
+Si estás trabajando con **ReadyAPI** no tienes que preocuparte por eso, porque esa "primera" función será tu _path operation function_, y ReadyAPI sabrá cómo hacer lo pertinente.
 
 En el caso de que desees usar `async` / `await` sin ReadyAPI, <a href="https://docs.python.org/3/library/asyncio-task.html#coroutine" class="external-link" target="_blank">revisa la documentación oficial de Python</a>.
 
@@ -388,7 +388,7 @@ Todo eso es lo que impulsa ReadyAPI (a través de Starlette) y lo que hace que t
 ## Detalles muy técnicos
 
 !!! warning "Advertencia"
-    Probablemente puedas saltarte esto.
+Probablemente puedas saltarte esto.
 
     Estos son detalles muy técnicos de cómo **ReadyAPI** funciona a muy bajo nivel.
 
@@ -396,11 +396,11 @@ Todo eso es lo que impulsa ReadyAPI (a través de Starlette) y lo que hace que t
 
 ### Path operation functions
 
-Cuando declaras una *path operation function* con `def` normal en lugar de `async def`, se ejecuta en un threadpool externo que luego es "<abbr title="En español: esperado. Usando await.">awaited</abbr>", en lugar de ser llamado directamente (ya que bloquearía el servidor).
+Cuando declaras una _path operation function_ con `def` normal en lugar de `async def`, se ejecuta en un threadpool externo que luego es "<abbr title="En español: esperado. Usando await.">awaited</abbr>", en lugar de ser llamado directamente (ya que bloquearía el servidor).
 
-Si vienes de otro framework asíncrono que no funciona de la manera descrita anteriormente y estás acostumbrado a definir *path operation functions* del tipo sólo cálculo con `def` simple para una pequeña ganancia de rendimiento (aproximadamente 100 nanosegundos), ten en cuenta que en **ReadyAPI** el efecto sería bastante opuesto. En estos casos, es mejor usar `async def` a menos que tus *path operation functions* usen un código que realice el bloqueo <abbr title="Input/Output: disk reading or writing, network communications.">I/O</abbr>.
+Si vienes de otro framework asíncrono que no funciona de la manera descrita anteriormente y estás acostumbrado a definir _path operation functions_ del tipo sólo cálculo con `def` simple para una pequeña ganancia de rendimiento (aproximadamente 100 nanosegundos), ten en cuenta que en **ReadyAPI** el efecto sería bastante opuesto. En estos casos, es mejor usar `async def` a menos que tus _path operation functions_ usen un código que realice el bloqueo <abbr title="Input/Output: disk reading or writing, network communications.">I/O</abbr>.
 
-Aún así, en ambas situaciones, es probable que **ReadyAPI** sea [aún más rápido](/#rendimiento){.Internal-link target=_blank} que (o al menos comparable) a tu framework anterior.
+Aún así, en ambas situaciones, es probable que **ReadyAPI** sea [aún más rápido](/#rendimiento){.Internal-link target=\_blank} que (o al menos comparable) a tu framework anterior.
 
 ### Dependencias
 
@@ -414,7 +414,7 @@ Puedes tener múltiples dependencias y subdependencias que se requieren unas a o
 
 Cualquier otra función de utilidad que llames directamente se puede crear con `def` o `async def` normales y ReadyAPI no afectará la manera en que la llames.
 
-Esto contrasta con las funciones que ReadyAPI llama por ti: las *path operation functions* y dependencias.
+Esto contrasta con las funciones que ReadyAPI llama por ti: las _path operation functions_ y dependencias.
 
 Si tu función de utilidad es creada con `def` normal, se llamará directamente (tal cual la escribes en tu código), no en un threadpool, si la función se crea con `async def`, entonces debes usar `await` con esa función cuando la llamas en tu código.
 

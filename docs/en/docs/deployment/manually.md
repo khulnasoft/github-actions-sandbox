@@ -4,9 +4,9 @@ The main thing you need to run a **ReadyAPI** application in a remote server mac
 
 There are 3 main alternatives:
 
-* <a href="https://www.uvicorn.org/" class="external-link" target="_blank">Uvicorn</a>: a high performance ASGI server.
-* <a href="https://pgjones.gitlab.io/hypercorn/" class="external-link" target="_blank">Hypercorn</a>: an ASGI server compatible with HTTP/2 and Trio among other features.
-* <a href="https://github.com/django/daphne" class="external-link" target="_blank">Daphne</a>: the ASGI server built for Django Channels.
+- <a href="https://www.uvicorn.org/" class="external-link" target="_blank">Uvicorn</a>: a high performance ASGI server.
+- <a href="https://pgjones.gitlab.io/hypercorn/" class="external-link" target="_blank">Hypercorn</a>: an ASGI server compatible with HTTP/2 and Trio among other features.
+- <a href="https://github.com/django/daphne" class="external-link" target="_blank">Daphne</a>: the ASGI server built for Django Channels.
 
 ## Server Machine and Server Program
 
@@ -86,7 +86,7 @@ You can then run your application the same way you have done in the tutorials, b
     </div>
 
 !!! warning
-    Remember to remove the `--reload` option if you were using it.
+Remember to remove the `--reload` option if you were using it.
 
     The `--reload` option consumes much more resources, is more unstable, etc.
 
@@ -135,11 +135,11 @@ These examples run the server program (e.g Uvicorn), starting **a single process
 
 This is the basic idea. But you will probably want to take care of some additional things, like:
 
-* Security - HTTPS
-* Running on startup
-* Restarts
-* Replication (the number of processes running)
-* Memory
-* Previous steps before starting
+- Security - HTTPS
+- Running on startup
+- Restarts
+- Replication (the number of processes running)
+- Memory
+- Previous steps before starting
 
 I'll tell you more about each of these concepts, how to think about them, and some concrete examples with strategies to handle them in the next chapters. 🚀

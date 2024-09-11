@@ -14,11 +14,11 @@ Then, when you type that username and password, the browser sends them in the he
 
 ## Simple HTTP Basic Auth
 
-* Import `HTTPBasic` and `HTTPBasicCredentials`.
-* Create a "`security` scheme" using `HTTPBasic`.
-* Use that `security` with a dependency in your *path operation*.
-* It returns an object of type `HTTPBasicCredentials`:
-    * It contains the `username` and `password` sent.
+- Import `HTTPBasic` and `HTTPBasicCredentials`.
+- Create a "`security` scheme" using `HTTPBasic`.
+- Use that `security` with a dependency in your _path operation_.
+- It returns an object of type `HTTPBasicCredentials`:
+  - It contains the `username` and `password` sent.
 
 === "Python 3.9+"
 
@@ -53,7 +53,7 @@ Use a dependency to check if the username and password are correct.
 
 For this, use the Python standard module <a href="https://docs.python.org/3/library/secrets.html" class="external-link" target="_blank">`secrets`</a> to check the username and password.
 
-`secrets.compare_digest()` needs to take `bytes` or a `str` that only contains ASCII characters (the ones in English), this means it wouldn't work with characters like `á`, as in `Sebastián`.
+`secrets.compare_digest()` needs to take `bytes` or a `str` that only contains ASCII characters (the ones in English), this means it wouldn't work with characters like `á`, as in `KhulnaSoft`.
 
 To handle that, we first convert the `username` and `password` to `bytes` encoding them with UTF-8.
 

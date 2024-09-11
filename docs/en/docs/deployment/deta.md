@@ -7,11 +7,11 @@ It will take you about **10 minutes** to deploy an API that you can use. After t
 Let's dive in.
 
 !!! info
-    <a href="https://deta.space?ref=readyapi" class="external-link" target="_blank">Deta</a> is a **ReadyAPI** sponsor. 🎉
+<a href="https://deta.space?ref=readyapi" class="external-link" target="_blank">Deta</a> is a **ReadyAPI** sponsor. 🎉
 
 ## A simple **ReadyAPI** app
 
-* To start, create an empty directory with the name of your app, for example `./readyapi-deta/`, and then navigate into it.
+- To start, create an empty directory with the name of your app, for example `./readyapi-deta/`, and then navigate into it.
 
 ```console
 $ mkdir readyapi-deta
@@ -20,7 +20,7 @@ $ cd readyapi-deta
 
 ### ReadyAPI code
 
-* Create a `main.py` file with:
+- Create a `main.py` file with:
 
 ```Python
 from readyapi import ReadyAPI
@@ -62,7 +62,6 @@ You will now have a directory `./readyapi-deta/` with two files:
 Next, create a free account on <a href="https://deta.space/signup?dev_mode=true&ref=readyapi" class="external-link" target="_blank">Deta Space</a>, you just need an email and password.
 
 You don't even need a credit card, but make sure **Developer Mode** is enabled when you sign up.
-
 
 ## Install the CLI
 
@@ -119,7 +118,7 @@ Available Commands:
 </div>
 
 !!! tip
-    If you have problems installing the CLI, check the official <a href="https://deta.space/docs/en/basics/cli?ref=readyapi" class="external-link" target="_blank">Deta Space Documentation</a>.
+If you have problems installing the CLI, check the official <a href="https://deta.space/docs/en/basics/cli?ref=readyapi" class="external-link" target="_blank">Deta Space Documentation</a>.
 
 ## Login with the CLI
 
@@ -186,7 +185,7 @@ micros:
 It is a `yaml` file, and you can use it to add features like scheduled tasks or modify how your app functions, which we'll do later. To learn more, read <a href="https://deta.space/docs/en/reference/spacefile" class="external-link" target="_blank">the `Spacefile` documentation</a>.
 
 !!! tip
-    The Space CLI will also create a hidden `.space` folder in your local directory to link your local environment with Deta Space. This folder should not be included in your version control and will automatically be added to your `.gitignore` file, if you have initialized a Git repository.
+The Space CLI will also create a hidden `.space` folder in your local directory to link your local environment with Deta Space. This folder should not be included in your version control and will automatically be added to your `.gitignore` file, if you have initialized a Git repository.
 
 ## Define the run command in the Spacefile
 
@@ -217,12 +216,13 @@ build complete... created revision: satyr-jvjk
 ✔ Successfully pushed your code and created a new Revision!
 ℹ Updating your development instance with the latest Revision, it will be available on your Canvas shortly.
 ```
+
 </div>
 
 This command will package your code, upload all the necessary files to Deta Space, and run a remote build of your app, resulting in a **revision**. Whenever you run `space push` successfully, a live instance of your API is automatically updated with the latest revision.
 
 !!! tip
-    You can manage your <a href="https://deta.space/docs/en/basics/revisions#whats-a-revision" class="external-link" target="_blank">revisions</a> by opening your project in the Builder app. The live copy of your API will be visible under the **Develop** tab in Builder.
+You can manage your <a href="https://deta.space/docs/en/basics/revisions#whats-a-revision" class="external-link" target="_blank">revisions</a> by opening your project in the Builder app. The live copy of your API will be visible under the **Develop** tab in Builder.
 
 ## Check it
 
@@ -301,10 +301,10 @@ https://deta.space/discovery/r/5kjhgyxewkdmtotx
  Your Release is available globally on 5 Deta Edges
  Anyone can install their own copy of your app.
 ```
+
 </div>
 
 This command publishes your revision as a release and gives you a link. Anyone you give this link to can install your API.
-
 
 You can also make your app publicly discoverable by creating a **listed release** with `space release --listed` in the Space CLI:
 
@@ -328,6 +328,7 @@ https://deta.space/discovery/@user/readyapi-deta
  Anyone can install their own copy of your app.
  Listed on Discovery for others to find!
 ```
+
 </div>
 
 This will allow anyone to find and install your app via <a href="https://deta.space/discovery?ref=readyapi" class="external-link" target="_blank">Deta Discovery</a>. Read more about <a href="https://deta.space/docs/en/basics/releases?ref=readyapi" class="external-link" target="_blank">releasing your app in the docs</a>.
@@ -368,12 +369,11 @@ At some point, you will probably want to store some data for your app in a way t
 You can also read more in the <a href="https://deta.space/docs/?ref=readyapi" class="external-link" target="_blank">Deta Space Documentation</a>.
 
 !!! tip
-    If you have any Deta related questions, comments, or feedback, head to the <a href="https://go.deta.dev/discord" class="external-link" target="_blank">Deta Discord server</a>.
-
+If you have any Deta related questions, comments, or feedback, head to the <a href="https://go.deta.dev/discord" class="external-link" target="_blank">Deta Discord server</a>.
 
 ## Deployment Concepts
 
-Coming back to the concepts we discussed in [Deployments Concepts](./concepts.md){.internal-link target=_blank}, here's how each of them would be handled with Deta Space:
+Coming back to the concepts we discussed in [Deployments Concepts](./concepts.md){.internal-link target=\_blank}, here's how each of them would be handled with Deta Space:
 
 - **HTTPS**: Handled by Deta Space, they will give you a subdomain and handle HTTPS automatically.
 - **Running on startup**: Handled by Deta Space, as part of their service.
@@ -384,7 +384,7 @@ Coming back to the concepts we discussed in [Deployments Concepts](./concepts.md
 - **Previous steps before starting**: Can be configured using the <a href="https://deta.space/docs/en/reference/spacefile?ref=readyapi" class="external-link" target="_blank">`Spacefile`</a>.
 
 !!! note
-    Deta Space is designed to make it easy and free to build cloud applications for yourself. Then you can optionally share them with anyone.
+Deta Space is designed to make it easy and free to build cloud applications for yourself. Then you can optionally share them with anyone.
 
     It can simplify several use cases, but at the same time, it doesn't support others, like using external databases (apart from Deta's own NoSQL database system), custom virtual machines, etc.
 

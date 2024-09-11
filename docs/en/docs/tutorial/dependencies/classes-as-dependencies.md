@@ -42,7 +42,7 @@ In the previous example, we were returning a `dict` from our dependency ("depend
     {!> ../../../docs_src/dependencies/tutorial001.py!}
     ```
 
-But then we get a `dict` in the parameter `commons` of the *path operation function*.
+But then we get a `dict` in the parameter `commons` of the _path operation function_.
 
 And we know that editors can't provide a lot of support (like completion) for `dict`s, because they can't know their keys and value types.
 
@@ -97,9 +97,9 @@ Then, in **ReadyAPI**, you could use a Python class as a dependency.
 
 What ReadyAPI actually checks is that it is a "callable" (function, class or anything else) and the parameters defined.
 
-If you pass a "callable" as a dependency in **ReadyAPI**, it will analyze the parameters for that "callable", and process them in the same way as the parameters for a *path operation function*. Including sub-dependencies.
+If you pass a "callable" as a dependency in **ReadyAPI**, it will analyze the parameters for that "callable", and process them in the same way as the parameters for a _path operation function_. Including sub-dependencies.
 
-That also applies to callables with no parameters at all. The same as it would be for *path operation functions* with no parameters.
+That also applies to callables with no parameters at all. The same as it would be for _path operation functions_ with no parameters.
 
 Then, we can change the dependency "dependable" `common_parameters` from above to the class `CommonQueryParams`:
 
@@ -219,9 +219,9 @@ Those parameters are what **ReadyAPI** will use to "solve" the dependency.
 
 In both cases, it will have:
 
-* An optional `q` query parameter that is a `str`.
-* A `skip` query parameter that is an `int`, with a default of `0`.
-* A `limit` query parameter that is an `int`, with a default of `100`.
+- An optional `q` query parameter that is a `str`.
+- A `skip` query parameter that is an `int`, with a default of `0`.
+- A `limit` query parameter that is an `int`, with a default of `100`.
 
 In both cases the data will be converted, validated, documented on the OpenAPI schema, etc.
 
@@ -395,7 +395,7 @@ But you see that we are having some code repetition here, writing `CommonQueryPa
     commons: Annotated[CommonQueryParams, Depends(CommonQueryParams)]
     ```
 
-**ReadyAPI** provides a shortcut for these cases, in where the dependency is *specifically* a class that **ReadyAPI** will "call" to create an instance of the class itself.
+**ReadyAPI** provides a shortcut for these cases, in where the dependency is _specifically_ a class that **ReadyAPI** will "call" to create an instance of the class itself.
 
 For those specific cases, you can do the following:
 
@@ -433,7 +433,7 @@ Instead of writing:
     commons: CommonQueryParams = Depends()
     ```
 
-You declare the dependency as the type of the parameter, and you use `Depends()` without any parameter, instead of having to write the full class *again* inside of `Depends(CommonQueryParams)`.
+You declare the dependency as the type of the parameter, and you use `Depends()` without any parameter, instead of having to write the full class _again_ inside of `Depends(CommonQueryParams)`.
 
 The same example would then look like:
 
@@ -476,6 +476,6 @@ The same example would then look like:
 ...and **ReadyAPI** will know what to do.
 
 !!! tip
-    If that seems more confusing than helpful, disregard it, you don't *need* it.
+If that seems more confusing than helpful, disregard it, you don't _need_ it.
 
     It is just a shortcut. Because **ReadyAPI** cares about helping you minimize code repetition.

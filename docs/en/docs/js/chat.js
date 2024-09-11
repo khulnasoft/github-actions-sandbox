@@ -1,3 +1,3 @@
 ((window.gitter = {}).chat = {}).options = {
-    room: 'khulnasoft/readyapi'
+  room: "khulnasoft/readyapi",
 };

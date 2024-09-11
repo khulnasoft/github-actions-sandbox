@@ -1,13 +1,13 @@
 from typing import Annotated
 
-from readyapi import Query, ReadyAPI
+from readyapi import ReadyAPI, Query
 
 app = ReadyAPI()
 
 
 @app.get("/items/")
 async def read_items(
-    q: Annotated[str | None, Query(title="Query string", min_length=3)] = None,
+    q: Annotated[str | None, Query(title="Query string", min_length=3)] = None
 ):
     results = {"items": [{"item_id": "Foo"}, {"item_id": "Bar"}]}
     if q:

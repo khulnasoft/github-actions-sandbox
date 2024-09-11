@@ -14,14 +14,14 @@ So, even with the code above that doesn't use Pydantic explicitly, ReadyAPI is u
 
 And of course, it supports the same:
 
-* data validation
-* data serialization
-* data documentation, etc.
+- data validation
+- data serialization
+- data documentation, etc.
 
 This works the same way as with Pydantic models. And it is actually achieved in the same way underneath, using Pydantic.
 
 !!! info
-    Have in mind that dataclasses can't do everything Pydantic models can do.
+Have in mind that dataclasses can't do everything Pydantic models can do.
 
     So, you might still need to use Pydantic models.
 
@@ -63,25 +63,25 @@ In that case, you can simply swap the standard `dataclasses` with `pydantic.data
 
 5. You can use other standard type annotations with dataclasses as the request body.
 
-    In this case, it's a list of `Item` dataclasses.
+   In this case, it's a list of `Item` dataclasses.
 
 6. Here we are returning a dictionary that contains `items` which is a list of dataclasses.
 
-    ReadyAPI is still capable of <abbr title="converting the data to a format that can be transmitted">serializing</abbr> the data to JSON.
+   ReadyAPI is still capable of <abbr title="converting the data to a format that can be transmitted">serializing</abbr> the data to JSON.
 
 7. Here the `response_model` is using a type annotation of a list of `Author` dataclasses.
 
-    Again, you can combine `dataclasses` with standard type annotations.
+   Again, you can combine `dataclasses` with standard type annotations.
 
-8. Notice that this *path operation function* uses regular `def` instead of `async def`.
+8. Notice that this _path operation function_ uses regular `def` instead of `async def`.
 
-    As always, in ReadyAPI you can combine `def` and `async def` as needed.
+   As always, in ReadyAPI you can combine `def` and `async def` as needed.
 
-    If you need a refresher about when to use which, check out the section _"In a hurry?"_ in the docs about <a href="https://readyapi.khulnasoft.com/async/#in-a-hurry" target="_blank" class="internal-link">`async` and `await`</a>.
+   If you need a refresher about when to use which, check out the section _"In a hurry?"_ in the docs about <a href="https://readyapi.khulnasoft.com/async/#in-a-hurry" target="_blank" class="internal-link">`async` and `await`</a>.
 
-9. This *path operation function* is not returning dataclasses (although it could), but a list of dictionaries with internal data.
+9. This _path operation function_ is not returning dataclasses (although it could), but a list of dictionaries with internal data.
 
-    ReadyAPI will use the `response_model` parameter (that includes dataclasses) to convert the response.
+   ReadyAPI will use the `response_model` parameter (that includes dataclasses) to convert the response.
 
 You can combine `dataclasses` with other type annotations in many different combinations to form complex data structures.
 

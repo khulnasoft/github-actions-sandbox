@@ -18,7 +18,6 @@ You will be able to:
 app = ReadyAPI(
     title="ChimichangApp",
     description=description,
-    summary="Deadpool's favorite app. Nuff said.",
     version="0.0.1",
     terms_of_service="http://example.com/terms/",
     contact={

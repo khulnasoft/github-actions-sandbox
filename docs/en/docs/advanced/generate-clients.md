@@ -28,7 +28,7 @@ Let's start with a simple ReadyAPI application:
     {!> ../../../docs_src/generate_clients/tutorial001.py!}
     ```
 
-Notice that the *path operations* define the models they use for request payload and response payload, using the models `Item` and `ResponseMessage`.
+Notice that the _path operations_ define the models they use for request payload and response payload, using the models `Item` and `ResponseMessage`.
 
 ### API Docs
 
@@ -68,7 +68,7 @@ Because it is installed in the local project, you probably wouldn't be able to c
 
 It could look like this:
 
-```JSON  hl_lines="7"
+```JSON hl_lines="7"
 {
   "name": "frontend-app",
   "version": "1.0.0",
@@ -112,7 +112,7 @@ You will also get autocompletion for the payload to send:
 <img src="/img/tutorial/generate-clients/image03.png">
 
 !!! tip
-    Notice the autocompletion for `name` and `price`, that was defined in the ReadyAPI application, in the `Item` model.
+Notice the autocompletion for `name` and `price`, that was defined in the ReadyAPI application, in the `Item` model.
 
 You will have inline errors for the data that you send:
 
@@ -124,7 +124,7 @@ The response object will also have autocompletion:
 
 ## ReadyAPI App with Tags
 
-In many cases your ReadyAPI app will be bigger, and you will probably use tags to separate different groups of *path operations*.
+In many cases your ReadyAPI app will be bigger, and you will probably use tags to separate different groups of _path operations_.
 
 For example, you could have a section for **items** and another section for **users**, and they could be separated by tags:
 
@@ -150,8 +150,8 @@ This way you will be able to have things ordered and grouped correctly for the c
 
 In this case you have:
 
-* `ItemsService`
-* `UsersService`
+- `ItemsService`
+- `UsersService`
 
 ### Client Method Names
 
@@ -161,9 +161,9 @@ Right now the generated method names like `createItemItemsPost` don't look very 
 ItemsService.createItemItemsPost({name: "Plumbus", price: 5})
 ```
 
-...that's because the client generator uses the OpenAPI internal **operation ID** for each *path operation*.
+...that's because the client generator uses the OpenAPI internal **operation ID** for each _path operation_.
 
-OpenAPI requires that each operation ID is unique across all the *path operations*, so ReadyAPI uses the **function name**, the **path**, and the **HTTP method/operation** to generate that operation ID, because that way it can make sure that the operation IDs are unique.
+OpenAPI requires that each operation ID is unique across all the _path operations_, so ReadyAPI uses the **function name**, the **path**, and the **HTTP method/operation** to generate that operation ID, because that way it can make sure that the operation IDs are unique.
 
 But I'll show you how to improve that next. 🤓
 
@@ -173,15 +173,15 @@ You can **modify** the way these operation IDs are **generated** to make them si
 
 In this case you will have to ensure that each operation ID is **unique** in some other way.
 
-For example, you could make sure that each *path operation* has a tag, and then generate the operation ID based on the **tag** and the *path operation* **name** (the function name).
+For example, you could make sure that each _path operation_ has a tag, and then generate the operation ID based on the **tag** and the _path operation_ **name** (the function name).
 
 ### Custom Generate Unique ID Function
 
-ReadyAPI uses a **unique ID** for each *path operation*, it is used for the **operation ID** and also for the names of any needed custom models, for requests or responses.
+ReadyAPI uses a **unique ID** for each _path operation_, it is used for the **operation ID** and also for the names of any needed custom models, for requests or responses.
 
 You can customize that function. It takes an `APIRoute` and outputs a string.
 
-For example, here it is using the first tag (you will probably have only one tag) and the *path operation* name (the function name).
+For example, here it is using the first tag (you will probably have only one tag) and the _path operation_ name (the function name).
 
 You can then pass that custom function to **ReadyAPI** as the `generate_unique_id_function` parameter:
 
@@ -227,7 +227,7 @@ With that, the operation IDs would be renamed from things like `items-get_items`
 
 Now as the end result is in a file `openapi.json`, you would modify the `package.json` to use that local file, for example:
 
-```JSON  hl_lines="7"
+```JSON hl_lines="7"
 {
   "name": "frontend-app",
   "version": "1.0.0",
@@ -253,13 +253,13 @@ After generating the new client, you would now have **clean method names**, with
 
 When using the automatically generated clients you would **autocompletion** for:
 
-* Methods.
-* Request payloads in the body, query parameters, etc.
-* Response payloads.
+- Methods.
+- Request payloads in the body, query parameters, etc.
+- Response payloads.
 
 You would also have **inline errors** for everything.
 
-And whenever you update the backend code, and **regenerate** the frontend, it would have any new *path operations* available as methods, the old ones removed, and any other change would be reflected on the generated code. 🤓
+And whenever you update the backend code, and **regenerate** the frontend, it would have any new _path operations_ available as methods, the old ones removed, and any other change would be reflected on the generated code. 🤓
 
 This also means that if something changed it will be **reflected** on the client code automatically. And if you **build** the client it will error out if you have any **mismatch** in the data used.
 

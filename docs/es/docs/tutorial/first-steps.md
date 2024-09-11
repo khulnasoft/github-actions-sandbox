@@ -25,7 +25,7 @@ $ uvicorn main:app --reload
 </div>
 
 !!! note "Nota"
-    El comando `uvicorn main:app` se refiere a:
+El comando `uvicorn main:app` se refiere a:
 
     * `main`: el archivo `main.py` (el "módulo" de Python).
     * `app`: el objeto creado dentro de `main.py` con la línea `app = ReadyAPI()`.
@@ -137,7 +137,7 @@ También podrías usarlo para generar código automáticamente, para los cliente
 `ReadyAPI` es una clase de Python que provee toda la funcionalidad para tu API.
 
 !!! note "Detalles Técnicos"
-    `ReadyAPI` es una clase que hereda directamente de `Starlette`.
+`ReadyAPI` es una clase que hereda directamente de `Starlette`.
 
     También puedes usar toda la funcionalidad de <a href="https://www.starlette.io/" class="external-link" target="_blank">Starlette</a>.
 
@@ -181,7 +181,7 @@ $ uvicorn main:my_awesome_api --reload
 
 </div>
 
-### Paso 3: crea una *operación de path*
+### Paso 3: crea una _operación de path_
 
 #### Path
 
@@ -200,7 +200,7 @@ https://example.com/items/foo
 ```
 
 !!! info "Información"
-    Un "path" también se conoce habitualmente como "endpoint", "route" o "ruta".
+Un "path" también se conoce habitualmente como "endpoint", "route" o "ruta".
 
 Cuando construyes una API, el "path" es la manera principal de separar los <abbr title="en inglés: separation of concerns">"intereses"</abbr> y los "recursos".
 
@@ -210,17 +210,17 @@ Cuando construyes una API, el "path" es la manera principal de separar los <abbr
 
 Uno como:
 
-* `POST`
-* `GET`
-* `PUT`
-* `DELETE`
+- `POST`
+- `GET`
+- `PUT`
+- `DELETE`
 
 ...y los más exóticos:
 
-* `OPTIONS`
-* `HEAD`
-* `PATCH`
-* `TRACE`
+- `OPTIONS`
+- `HEAD`
+- `PATCH`
+- `TRACE`
 
 En el protocolo de HTTP, te puedes comunicar con cada path usando uno (o más) de estos "métodos".
 
@@ -230,16 +230,16 @@ Cuando construyes APIs, normalmente usas uno de estos métodos específicos de H
 
 Normalmente usas:
 
-* `POST`: para crear datos.
-* `GET`: para leer datos.
-* `PUT`: para actualizar datos.
-* `DELETE`: para borrar datos.
+- `POST`: para crear datos.
+- `GET`: para leer datos.
+- `PUT`: para actualizar datos.
+- `DELETE`: para borrar datos.
 
 Así que en OpenAPI, cada uno de estos métodos de HTTP es referido como una "operación".
 
 Nosotros también los llamaremos "**operación**".
 
-#### Define un *decorador de operaciones de path*
+#### Define un _decorador de operaciones de path_
 
 ```Python hl_lines="6"
 {!../../../docs_src/first_steps/tutorial001.py!}
@@ -247,11 +247,11 @@ Nosotros también los llamaremos "**operación**".
 
 El `@app.get("/")` le dice a **ReadyAPI** que la función que tiene justo debajo está a cargo de manejar los requests que van a:
 
-* el path `/`
-* usando una <abbr title="an HTTP GET method">operación <code>get</code></abbr>
+- el path `/`
+- usando una <abbr title="an HTTP GET method">operación <code>get</code></abbr>
 
 !!! info "Información sobre `@decorator`"
-    Esa sintaxis `@algo` se llama un "decorador" en Python.
+Esa sintaxis `@algo` se llama un "decorador" en Python.
 
     Lo pones encima de una función. Es como un lindo sombrero decorado (creo que de ahí salió el concepto).
 
@@ -263,19 +263,19 @@ El `@app.get("/")` le dice a **ReadyAPI** que la función que tiene justo debajo
 
 También puedes usar las otras operaciones:
 
-* `@app.post()`
-* `@app.put()`
-* `@app.delete()`
+- `@app.post()`
+- `@app.put()`
+- `@app.delete()`
 
 y las más exóticas:
 
-* `@app.options()`
-* `@app.head()`
-* `@app.patch()`
-* `@app.trace()`
+- `@app.options()`
+- `@app.head()`
+- `@app.patch()`
+- `@app.trace()`
 
 !!! tip "Consejo"
-    Tienes la libertad de usar cada operación (método de HTTP) como quieras.
+Tienes la libertad de usar cada operación (método de HTTP) como quieras.
 
     **ReadyAPI** no impone ningún significado específico.
 
@@ -285,11 +285,11 @@ y las más exóticas:
 
 ### Paso 4: define la **función de la operación de path**
 
-Esta es nuestra  "**función de la operación de path**":
+Esta es nuestra "**función de la operación de path**":
 
-* **path**: es `/`.
-* **operación**: es `get`.
-* **función**: es la función debajo del "decorador" (debajo de `@app.get("/")`).
+- **path**: es `/`.
+- **operación**: es `get`.
+- **función**: es la función debajo del "decorador" (debajo de `@app.get("/")`).
 
 ```Python hl_lines="7"
 {!../../../docs_src/first_steps/tutorial001.py!}
@@ -310,7 +310,7 @@ También podrías definirla como una función normal, en vez de `async def`:
 ```
 
 !!! note "Nota"
-    Si no sabes la diferencia, revisa el [Async: *"¿Tienes prisa?"*](../async.md#in-a-hurry){.internal-link target=_blank}.
+Si no sabes la diferencia, revisa el [Async: _"¿Tienes prisa?"_](../async.md#in-a-hurry){.internal-link target=\_blank}.
 
 ### Paso 5: devuelve el contenido
 
@@ -326,8 +326,8 @@ Hay muchos objetos y modelos que pueden ser convertidos automáticamente a JSON 
 
 ## Repaso
 
-* Importa `ReadyAPI`.
-* Crea un instance de `app`.
-* Escribe un **decorador de operación de path** (como `@app.get("/")`).
-* Escribe una **función de la operación de path** (como `def root(): ...` arriba).
-* Corre el servidor de desarrollo (como `uvicorn main:app --reload`).
+- Importa `ReadyAPI`.
+- Crea un instance de `app`.
+- Escribe un **decorador de operación de path** (como `@app.get("/")`).
+- Escribe una **función de la operación de path** (como `def root(): ...` arriba).
+- Corre el servidor de desarrollo (como `uvicorn main:app --reload`).

@@ -2,23 +2,23 @@
 
 Let's check back those deployment concepts from before:
 
-* Security - HTTPS
-* Running on startup
-* Restarts
-* **Replication (the number of processes running)**
-* Memory
-* Previous steps before starting
+- Security - HTTPS
+- Running on startup
+- Restarts
+- **Replication (the number of processes running)**
+- Memory
+- Previous steps before starting
 
 Up to this point, with all the tutorials in the docs, you have probably been running a **server program** like Uvicorn, running a **single process**.
 
 When deploying applications you will probably want to have some **replication of processes** to take advantage of **multiple cores** and to be able to handle more requests.
 
-As you saw in the previous chapter about [Deployment Concepts](./concepts.md){.internal-link target=_blank}, there are multiple strategies you can use.
+As you saw in the previous chapter about [Deployment Concepts](./concepts.md){.internal-link target=\_blank}, there are multiple strategies you can use.
 
 Here I'll show you how to use <a href="https://gunicorn.org/" class="external-link" target="_blank">**Gunicorn**</a> with **Uvicorn worker processes**.
 
 !!! info
-    If you are using containers, for example with Docker or Kubernetes, I'll tell you more about that in the next chapter: [ReadyAPI in Containers - Docker](./docker.md){.internal-link target=_blank}.
+If you are using containers, for example with Docker or Kubernetes, I'll tell you more about that in the next chapter: [ReadyAPI in Containers - Docker](./docker.md){.internal-link target=\_blank}.
 
     In particular, when running on **Kubernetes** you will probably **not** want to use Gunicorn and instead run **a single Uvicorn process per container**, but I'll tell you about it later in that chapter.
 
@@ -82,33 +82,36 @@ $ gunicorn main:app --workers 4 --worker-class uvicorn.workers.UvicornWorker --b
 
 Let's see what each of those options mean:
 
-* `main:app`: This is the same syntax used by Uvicorn, `main` means the Python module named "`main`", so, a file `main.py`. And `app` is the name of the variable that is the **ReadyAPI** application.
-    * You can imagine that `main:app` is equivalent to a Python `import` statement like:
+- `main:app`: This is the same syntax used by Uvicorn, `main` means the Python module named "`main`", so, a file `main.py`. And `app` is the name of the variable that is the **ReadyAPI** application.
 
-        ```Python
-        from main import app
-        ```
+  - You can imagine that `main:app` is equivalent to a Python `import` statement like:
 
-    * So, the colon in `main:app` would be equivalent to the Python `import` part in `from main import app`.
-* `--workers`: The number of worker processes to use, each will run a Uvicorn worker, in this case, 4 workers.
-* `--worker-class`: The Gunicorn-compatible worker class to use in the worker processes.
-    * Here we pass the class that Gunicorn can import and use with:
+    ```Python
+    from main import app
+    ```
 
-        ```Python
-        import uvicorn.workers.UvicornWorker
-        ```
+  - So, the colon in `main:app` would be equivalent to the Python `import` part in `from main import app`.
 
-* `--bind`: This tells Gunicorn the IP and the port to listen to, using a colon (`:`) to separate the IP and the port.
-    * If you were running Uvicorn directly, instead of `--bind 0.0.0.0:80` (the Gunicorn option) you would use `--host 0.0.0.0` and `--port 80`.
+- `--workers`: The number of worker processes to use, each will run a Uvicorn worker, in this case, 4 workers.
+- `--worker-class`: The Gunicorn-compatible worker class to use in the worker processes.
+
+  - Here we pass the class that Gunicorn can import and use with:
+
+    ```Python
+    import uvicorn.workers.UvicornWorker
+    ```
+
+- `--bind`: This tells Gunicorn the IP and the port to listen to, using a colon (`:`) to separate the IP and the port.
+  - If you were running Uvicorn directly, instead of `--bind 0.0.0.0:80` (the Gunicorn option) you would use `--host 0.0.0.0` and `--port 80`.
 
 In the output, you can see that it shows the **PID** (process ID) of each process (it's just a number).
 
 You can see that:
 
-* The Gunicorn **process manager** starts with PID `19499` (in your case it will be a different number).
-* Then it starts `Listening at: http://0.0.0.0:80`.
-* Then it detects that it has to use the worker class at `uvicorn.workers.UvicornWorker`.
-* And then it starts **4 workers**, each with its own PID: `19511`, `19513`, `19514`, and `19515`.
+- The Gunicorn **process manager** starts with PID `19499` (in your case it will be a different number).
+- Then it starts `Listening at: http://0.0.0.0:80`.
+- Then it detects that it has to use the worker class at `uvicorn.workers.UvicornWorker`.
+- And then it starts **4 workers**, each with its own PID: `19511`, `19513`, `19514`, and `19515`.
 
 Gunicorn would also take care of managing **dead processes** and **restarting** new ones if needed to keep the number of workers. So that helps in part with the **restart** concept from the list above.
 
@@ -154,16 +157,16 @@ Here you saw how to use **Gunicorn** (or Uvicorn) managing **Uvicorn worker proc
 
 From the list of deployment concepts from above, using workers would mainly help with the **replication** part, and a little bit with the **restarts**, but you still need to take care of the others:
 
-* **Security - HTTPS**
-* **Running on startup**
-* ***Restarts***
-* Replication (the number of processes running)
-* **Memory**
-* **Previous steps before starting**
+- **Security - HTTPS**
+- **Running on startup**
+- **_Restarts_**
+- Replication (the number of processes running)
+- **Memory**
+- **Previous steps before starting**
 
 ## Containers and Docker
 
-In the next chapter about [ReadyAPI in Containers - Docker](./docker.md){.internal-link target=_blank} I'll tell some strategies you could use to handle the other **deployment concepts**.
+In the next chapter about [ReadyAPI in Containers - Docker](./docker.md){.internal-link target=\_blank} I'll tell some strategies you could use to handle the other **deployment concepts**.
 
 I'll also show you the **official Docker image** that includes **Gunicorn with Uvicorn workers** and some default configurations that can be useful for simple cases.
 

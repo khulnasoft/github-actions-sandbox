@@ -6,14 +6,14 @@ You can customize several metadata configurations in your **ReadyAPI** applicati
 
 You can set the following fields that are used in the OpenAPI specification and the automatic API docs UIs:
 
-| Parameter | Type | Description |
-|------------|------|-------------|
-| `title` | `str` | The title of the API. |
-| `description` | `str` | A short description of the API. It can use Markdown. |
-| `version` | `string` | The version of the API. This is the version of your own application, not of OpenAPI. For example `2.5.0`. |
-| `terms_of_service` | `str` | A URL to the Terms of Service for the API. If provided, this has to be a URL. |
-| `contact` | `dict` | The contact information for the exposed API. It can contain several fields. <details><summary><code>contact</code> fields</summary><table><thead><tr><th>Parameter</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>name</code></td><td><code>str</code></td><td>The identifying name of the contact person/organization.</td></tr><tr><td><code>url</code></td><td><code>str</code></td><td>The URL pointing to the contact information. MUST be in the format of a URL.</td></tr><tr><td><code>email</code></td><td><code>str</code></td><td>The email address of the contact person/organization. MUST be in the format of an email address.</td></tr></tbody></table></details> |
-| `license_info` | `dict` | The license information for the exposed API. It can contain several fields. <details><summary><code>license_info</code> fields</summary><table><thead><tr><th>Parameter</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>name</code></td><td><code>str</code></td><td><strong>REQUIRED</strong> (if a <code>license_info</code> is set). The license name used for the API.</td></tr><tr><td><code>url</code></td><td><code>str</code></td><td>A URL to the license used for the API. MUST be in the format of a URL.</td></tr></tbody></table></details> |
+| Parameter          | Type     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| ------------------ | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `title`            | `str`    | The title of the API.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| `description`      | `str`    | A short description of the API. It can use Markdown.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| `version`          | `string` | The version of the API. This is the version of your own application, not of OpenAPI. For example `2.5.0`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| `terms_of_service` | `str`    | A URL to the Terms of Service for the API. If provided, this has to be a URL.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| `contact`          | `dict`   | The contact information for the exposed API. It can contain several fields. <details><summary><code>contact</code> fields</summary><table><thead><tr><th>Parameter</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>name</code></td><td><code>str</code></td><td>The identifying name of the contact person/organization.</td></tr><tr><td><code>url</code></td><td><code>str</code></td><td>The URL pointing to the contact information. MUST be in the format of a URL.</td></tr><tr><td><code>email</code></td><td><code>str</code></td><td>The email address of the contact person/organization. MUST be in the format of an email address.</td></tr></tbody></table></details> |
+| `license_info`     | `dict`   | The license information for the exposed API. It can contain several fields. <details><summary><code>license_info</code> fields</summary><table><thead><tr><th>Parameter</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>name</code></td><td><code>str</code></td><td><strong>REQUIRED</strong> (if a <code>license_info</code> is set). The license name used for the API.</td></tr><tr><td><code>url</code></td><td><code>str</code></td><td>A URL to the license used for the API. MUST be in the format of a URL.</td></tr></tbody></table></details>                                                                                                                           |
 
 You can set them as follows:
 
@@ -22,7 +22,7 @@ You can set them as follows:
 ```
 
 !!! tip
-    You can write Markdown in the `description` field and it will be rendered in the output.
+You can write Markdown in the `description` field and it will be rendered in the output.
 
 With this configuration, the automatic API docs would look like:
 
@@ -36,11 +36,11 @@ It takes a list containing one dictionary for each tag.
 
 Each dictionary can contain:
 
-* `name` (**required**): a `str` with the same tag name you use in the `tags` parameter in your *path operations* and `APIRouter`s.
-* `description`: a `str` with a short description for the tag. It can have Markdown and will be shown in the docs UI.
-* `externalDocs`: a `dict` describing external documentation with:
-    * `description`: a `str` with a short description for the external docs.
-    * `url` (**required**): a `str` with the URL for the external documentation.
+- `name` (**required**): a `str` with the same tag name you use in the `tags` parameter in your _path operations_ and `APIRouter`s.
+- `description`: a `str` with a short description for the tag. It can have Markdown and will be shown in the docs UI.
+- `externalDocs`: a `dict` describing external documentation with:
+  - `description`: a `str` with a short description for the external docs.
+  - `url` (**required**): a `str` with the URL for the external documentation.
 
 ### Create metadata for tags
 
@@ -55,18 +55,18 @@ Create metadata for your tags and pass it to the `openapi_tags` parameter:
 Notice that you can use Markdown inside of the descriptions, for example "login" will be shown in bold (**login**) and "fancy" will be shown in italics (_fancy_).
 
 !!! tip
-    You don't have to add metadata for all the tags that you use.
+You don't have to add metadata for all the tags that you use.
 
 ### Use your tags
 
-Use the `tags` parameter with your *path operations* (and `APIRouter`s) to assign them to different tags:
+Use the `tags` parameter with your _path operations_ (and `APIRouter`s) to assign them to different tags:
 
 ```Python hl_lines="21  26"
 {!../../../docs_src/metadata/tutorial004.py!}
 ```
 
 !!! info
-    Read more about tags in [Path Operation Configuration](../path-operation-configuration/#tags){.internal-link target=_blank}.
+Read more about tags in [Path Operation Configuration](../path-operation-configuration/#tags){.internal-link target=\_blank}.
 
 ### Check the docs
 
@@ -98,12 +98,12 @@ If you want to disable the OpenAPI schema completely you can set `openapi_url=No
 
 You can configure the two documentation user interfaces included:
 
-* **Swagger UI**: served at `/docs`.
-    * You can set its URL with the parameter `docs_url`.
-    * You can disable it by setting `docs_url=None`.
-* **ReDoc**: served at `/redoc`.
-    * You can set its URL with the parameter `redoc_url`.
-    * You can disable it by setting `redoc_url=None`.
+- **Swagger UI**: served at `/docs`.
+  - You can set its URL with the parameter `docs_url`.
+  - You can disable it by setting `docs_url=None`.
+- **ReDoc**: served at `/redoc`.
+  - You can set its URL with the parameter `redoc_url`.
+  - You can disable it by setting `redoc_url=None`.
 
 For example, to set Swagger UI to be served at `/documentation` and disable ReDoc:
 

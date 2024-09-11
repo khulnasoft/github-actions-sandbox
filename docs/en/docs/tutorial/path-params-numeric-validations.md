@@ -43,7 +43,7 @@ First, import `Path` from `readyapi`, and import `Annotated`:
     ```
 
 !!! info
-    ReadyAPI added support for `Annotated` (and started recommending it) in version 0.95.0.
+ReadyAPI added support for `Annotated` (and started recommending it) in version 0.95.0.
 
     If you have an older version, you would get errors when trying to use `Annotated`.
 
@@ -92,7 +92,7 @@ For example, to declare a `title` metadata value for the path parameter `item_id
     ```
 
 !!! note
-    A path parameter is always required as it has to be part of the path.
+A path parameter is always required as it has to be part of the path.
 
     So, you should declare it with `...` to mark it as required.
 
@@ -101,7 +101,7 @@ For example, to declare a `title` metadata value for the path parameter `item_id
 ## Order the parameters as you need
 
 !!! tip
-    This is probably not as important or necessary if you use `Annotated`.
+This is probably not as important or necessary if you use `Annotated`.
 
 Let's say that you want to declare the query parameter `q` as a required `str`.
 
@@ -143,16 +143,16 @@ But have in mind that if you use `Annotated`, you won't have this problem, it wo
 ## Order the parameters as you need, tricks
 
 !!! tip
-    This is probably not as important or necessary if you use `Annotated`.
+This is probably not as important or necessary if you use `Annotated`.
 
 Here's a **small trick** that can be handy, but you won't need it often.
 
 If you want to:
 
-* declare the `q` query parameter without a `Query` nor any default value
-* declare the path parameter `item_id` using `Path`
-* have them in a different order
-* not use `Annotated`
+- declare the `q` query parameter without a `Query` nor any default value
+- declare the path parameter `item_id` using `Path`
+- have them in a different order
+- not use `Annotated`
 
 ...Python has a little special syntax for that.
 
@@ -211,8 +211,8 @@ Here, with `ge=1`, `item_id` will need to be an integer number "`g`reater than o
 
 The same applies for:
 
-* `gt`: `g`reater `t`han
-* `le`: `l`ess than or `e`qual
+- `gt`: `g`reater `t`han
+- `le`: `l`ess than or `e`qual
 
 === "Python 3.9+"
 
@@ -268,22 +268,22 @@ And the same for <abbr title="less than"><code>lt</code></abbr>.
 
 ## Recap
 
-With `Query`, `Path` (and others you haven't seen yet) you can declare metadata and string validations in the same ways as with [Query Parameters and String Validations](query-params-str-validations.md){.internal-link target=_blank}.
+With `Query`, `Path` (and others you haven't seen yet) you can declare metadata and string validations in the same ways as with [Query Parameters and String Validations](query-params-str-validations.md){.internal-link target=\_blank}.
 
 And you can also declare numeric validations:
 
-* `gt`: `g`reater `t`han
-* `ge`: `g`reater than or `e`qual
-* `lt`: `l`ess `t`han
-* `le`: `l`ess than or `e`qual
+- `gt`: `g`reater `t`han
+- `ge`: `g`reater than or `e`qual
+- `lt`: `l`ess `t`han
+- `le`: `l`ess than or `e`qual
 
 !!! info
-    `Query`, `Path`, and other classes you will see later are subclasses of a common `Param` class.
+`Query`, `Path`, and other classes you will see later are subclasses of a common `Param` class.
 
     All of them share the same parameters for additional validation and metadata you have seen.
 
 !!! note "Technical Details"
-    When you import `Query`, `Path` and others from `readyapi`, they are actually functions.
+When you import `Query`, `Path` and others from `readyapi`, they are actually functions.
 
     That when called, return instances of classes of the same name.
 

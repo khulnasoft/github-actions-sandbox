@@ -13,7 +13,7 @@ This is just a **quick tutorial / refresher** about Python type hints. It covers
 But even if you never use **ReadyAPI**, you would benefit from learning a bit about them.
 
 !!! note
-    If you are a Python expert, and you already know everything about type hints, skip to the next chapter.
+If you are a Python expert, and you already know everything about type hints, skip to the next chapter.
 
 ## Motivation
 
@@ -31,9 +31,9 @@ John Doe
 
 The function does the following:
 
-* Takes a `first_name` and `last_name`.
-* Converts the first letter of each one to upper case with `title()`.
-* <abbr title="Puts them together, as one. With the contents of one after the other.">Concatenates</abbr> them with a space in the middle.
+- Takes a `first_name` and `last_name`.
+- Converts the first letter of each one to upper case with `title()`.
+- <abbr title="Puts them together, as one. With the contents of one after the other.">Concatenates</abbr> them with a space in the middle.
 
 ```Python hl_lines="2"
 {!../../../docs_src/python_types/tutorial001.py!}
@@ -135,10 +135,10 @@ You can declare all the standard Python types, not only `str`.
 
 You can use, for example:
 
-* `int`
-* `float`
-* `bool`
-* `bytes`
+- `int`
+- `float`
+- `bool`
+- `bytes`
 
 ```Python hl_lines="1"
 {!../../../docs_src/python_types/tutorial005.py!}
@@ -201,14 +201,14 @@ For example, let's define a variable to be a `list` of `str`.
     ```
 
 !!! info
-    Those internal types in the square brackets are called "type parameters".
+Those internal types in the square brackets are called "type parameters".
 
     In this case, `str` is the type parameter passed to `List` (or `list` in Python 3.9 and above).
 
 That means: "the variable `items` is a `list`, and each of the items in this list is a `str`".
 
 !!! tip
-    If you use Python 3.9 or above, you don't have to import `List` from `typing`, you can use the same regular `list` type instead.
+If you use Python 3.9 or above, you don't have to import `List` from `typing`, you can use the same regular `list` type instead.
 
 By doing that, your editor can provide support even while processing items from the list:
 
@@ -238,8 +238,8 @@ You would do the same to declare `tuple`s and `set`s:
 
 This means:
 
-* The variable `items_t` is a `tuple` with 3 items, an `int`, another `int`, and a `str`.
-* The variable `items_s` is a `set`, and each of its items is of type `bytes`.
+- The variable `items_t` is a `tuple` with 3 items, an `int`, another `int`, and a `str`.
+- The variable `items_s` is a `set`, and each of its items is of type `bytes`.
 
 #### Dict
 
@@ -263,9 +263,9 @@ The second type parameter is for the values of the `dict`:
 
 This means:
 
-* The variable `prices` is a `dict`:
-    * The keys of this `dict` are of type `str` (let's say, the name of each item).
-    * The values of this `dict` are of type `float` (let's say, the price of each item).
+- The variable `prices` is a `dict`:
+  - The keys of this `dict` are of type `str` (let's say, the name of each item).
+  - The values of this `dict` are of type `float` (let's say, the price of each item).
 
 #### Union
 
@@ -327,8 +327,8 @@ This also means that in Python 3.10, you can use `Something | None`:
 
 If you are using a Python version below 3.10, here's a tip from my very **subjective** point of view:
 
-* 🚨 Avoid using `Optional[SomeType]`
-* Instead ✨ **use `Union[SomeType, None]`** ✨.
+- 🚨 Avoid using `Optional[SomeType]`
+- Instead ✨ **use `Union[SomeType, None]`** ✨.
 
 Both are equivalent and underneath they are the same, but I would recommend `Union` instead of `Optional` because the word "**optional**" would seem to imply that the value is optional, and it actually means "it can be `None`", even if it's not optional and is still required.
 
@@ -348,7 +348,7 @@ The parameter `name` is defined as `Optional[str]`, but it is **not optional**, 
 say_hi()  # Oh, no, this throws an error! 😱
 ```
 
-The `name` parameter is **still required** (not *optional*) because it doesn't have a default value. Still, `name` accepts `None` as the value:
+The `name` parameter is **still required** (not _optional_) because it doesn't have a default value. Still, `name` accepts `None` as the value:
 
 ```Python
 say_hi(name=None)  # This works, None is valid 🎉
@@ -465,14 +465,14 @@ An example from the official Pydantic docs:
     ```
 
 !!! info
-    To learn more about <a href="https://pydantic-docs.helpmanual.io/" class="external-link" target="_blank">Pydantic, check its docs</a>.
+To learn more about <a href="https://pydantic-docs.helpmanual.io/" class="external-link" target="_blank">Pydantic, check its docs</a>.
 
 **ReadyAPI** is all based on Pydantic.
 
-You will see a lot more of all this in practice in the [Tutorial - User Guide](tutorial/index.md){.internal-link target=_blank}.
+You will see a lot more of all this in practice in the [Tutorial - User Guide](tutorial/index.md){.internal-link target=\_blank}.
 
 !!! tip
-    Pydantic has a special behavior when you use `Optional` or `Union[Something, None]` without a default value, you can read more about it in the Pydantic docs about <a href="https://pydantic-docs.helpmanual.io/usage/models/#required-optional-fields" class="external-link" target="_blank">Required Optional fields</a>.
+Pydantic has a special behavior when you use `Optional` or `Union[Something, None]` without a default value, you can read more about it in the Pydantic docs about <a href="https://pydantic-docs.helpmanual.io/usage/models/#required-optional-fields" class="external-link" target="_blank">Required Optional fields</a>.
 
 ## Type Hints with Metadata Annotations
 
@@ -500,14 +500,14 @@ Python itself doesn't do anything with this `Annotated`. And for editors and oth
 
 But you can use this space in `Annotated` to provide **ReadyAPI** with additional metadata about how you want your application to behave.
 
-The important thing to remember is that **the first *type parameter*** you pass to `Annotated` is the **actual type**. The rest, is just metadata for other tools.
+The important thing to remember is that **the first _type parameter_** you pass to `Annotated` is the **actual type**. The rest, is just metadata for other tools.
 
 For now, you just need to know that `Annotated` exists, and that it's standard Python. 😎
 
 Later you will see how **powerful** it can be.
 
 !!! tip
-    The fact that this is **standard Python** means that you will still get the **best possible developer experience** in your editor, with the tools you use to analyze and refactor your code, etc. ✨
+The fact that this is **standard Python** means that you will still get the **best possible developer experience** in your editor, with the tools you use to analyze and refactor your code, etc. ✨
 
     And also that your code will be very compatible with many other Python tools and libraries. 🚀
 
@@ -517,21 +517,21 @@ Later you will see how **powerful** it can be.
 
 With **ReadyAPI** you declare parameters with type hints and you get:
 
-* **Editor support**.
-* **Type checks**.
+- **Editor support**.
+- **Type checks**.
 
 ...and **ReadyAPI** uses the same declarations to:
 
-* **Define requirements**: from request path parameters, query parameters, headers, bodies, dependencies, etc.
-* **Convert data**: from the request to the required type.
-* **Validate data**: coming from each request:
-    * Generating **automatic errors** returned to the client when the data is invalid.
-* **Document** the API using OpenAPI:
-    * which is then used by the automatic interactive documentation user interfaces.
+- **Define requirements**: from request path parameters, query parameters, headers, bodies, dependencies, etc.
+- **Convert data**: from the request to the required type.
+- **Validate data**: coming from each request:
+  - Generating **automatic errors** returned to the client when the data is invalid.
+- **Document** the API using OpenAPI:
+  - which is then used by the automatic interactive documentation user interfaces.
 
-This might all sound abstract. Don't worry. You'll see all this in action in the [Tutorial - User Guide](tutorial/index.md){.internal-link target=_blank}.
+This might all sound abstract. Don't worry. You'll see all this in action in the [Tutorial - User Guide](tutorial/index.md){.internal-link target=\_blank}.
 
 The important thing is that by using standard Python types, in a single place (instead of adding more classes, decorators, etc), **ReadyAPI** will do a lot of the work for you.
 
 !!! info
-    If you already went through all the tutorial and came back to see more about types, a good resource is <a href="https://mypy.readthedocs.io/en/latest/cheat_sheet_py3.html" class="external-link" target="_blank">the "cheat sheet" from `mypy`</a>.
+If you already went through all the tutorial and came back to see more about types, a good resource is <a href="https://mypy.readthedocs.io/en/latest/cheat_sheet_py3.html" class="external-link" target="_blank">the "cheat sheet" from `mypy`</a>.

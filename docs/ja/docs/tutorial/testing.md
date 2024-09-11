@@ -23,19 +23,19 @@
 ```
 
 !!! tip "豆知識"
-    テスト関数は `async def` ではなく、通常の `def` であることに注意してください。
+テスト関数は `async def` ではなく、通常の `def` であることに注意してください。
 
     また、クライアントへの呼び出しも通常の呼び出しであり、`await` を使用しません。
 
     これにより、煩雑にならずに、`pytest` を直接使用できます。
 
 !!! note "技術詳細"
-    `from starlette.testclient import TestClient` も使用できます。
+`from starlette.testclient import TestClient` も使用できます。
 
     **ReadyAPI** は開発者の利便性のために `readyapi.testclient` と同じ `starlette.testclient` を提供します。しかし、実際にはStarletteから直接渡されています。
 
 !!! tip "豆知識"
-    ReadyAPIアプリケーションへのリクエストの送信とは別に、テストで `async` 関数 (非同期データベース関数など) を呼び出したい場合は、高度なチュートリアルの[Async Tests](../advanced/async-tests.md){.internal-link target=_blank} を参照してください。
+ReadyAPI アプリケーションへのリクエストの送信とは別に、テストで `async` 関数 (非同期データベース関数など) を呼び出したい場合は、高度なチュートリアルの[Async Tests](../advanced/async-tests.md){.internal-link target=\_blank} を参照してください。
 
 ## テストの分離
 
@@ -63,7 +63,6 @@
 
 次に、この例を拡張し、詳細を追加して、さまざまなパーツをテストする方法を確認しましょう。
 
-
 ### 拡張版 **ReadyAPI** アプリファイル
 
 **ReadyAPI** アプリに `main_b.py` ファイルがあるとします。
@@ -72,7 +71,7 @@
 
 また、いくつかのエラーを返す可能性のある `POST` オペレーションもあります。
 
-これらの *path operation* には `X-Token` ヘッダーが必要です。
+これらの _path operation_ には `X-Token` ヘッダーが必要です。
 
 === "Python 3.10+"
 
@@ -100,16 +99,16 @@
 
 例えば:
 
-* *パス* または *クエリ* パラメータを渡すには、それをURL自体に追加します。
-* JSONボディを渡すには、Pythonオブジェクト (例: `dict`) を `json` パラメータに渡します。
-* JSONの代わりに *フォームデータ* を送信する必要がある場合は、代わりに `data` パラメータを使用してください。
-* *ヘッダー* を渡すには、`headers` パラメータに `dict` を渡します。
-* *cookies* の場合、 `cookies` パラメータに `dict` です。
+- _パス_ または _クエリ_ パラメータを渡すには、それを URL 自体に追加します。
+- JSON ボディを渡すには、Python オブジェクト (例: `dict`) を `json` パラメータに渡します。
+- JSON の代わりに _フォームデータ_ を送信する必要がある場合は、代わりに `data` パラメータを使用してください。
+- _ヘッダー_ を渡すには、`headers` パラメータに `dict` を渡します。
+- _cookies_ の場合、 `cookies` パラメータに `dict` です。
 
-(`httpx` または `TestClient` を使用して) バックエンドにデータを渡す方法の詳細は、<a href="https://www.python-httpx.org" class="external-link" target="_blank">HTTPXのドキュメント</a>を確認してください。
+(`httpx` または `TestClient` を使用して) バックエンドにデータを渡す方法の詳細は、<a href="https://www.python-httpx.org" class="external-link" target="_blank">HTTPX のドキュメント</a>を確認してください。
 
 !!! info "情報"
-    `TestClient` は、Pydanticモデルではなく、JSONに変換できるデータを受け取ることに注意してください。
+`TestClient` は、Pydantic モデルではなく、JSON に変換できるデータを受け取ることに注意してください。
 
     テストにPydanticモデルがあり、テスト中にそのデータをアプリケーションに送信したい場合は、[JSON互換エンコーダ](encoder.md){.internal-link target=_blank} で説明されている `jsonable_encoder` が利用できます。
 

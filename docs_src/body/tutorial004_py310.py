@@ -1,5 +1,5 @@
-from pydantic import BaseModel
 from readyapi import ReadyAPI
+from pydantic import BaseModel
 
 
 class Item(BaseModel):
@@ -13,7 +13,7 @@ app = ReadyAPI()
 
 
 @app.put("/items/{item_id}")
-async def update_item(item_id: int, item: Item, q: str | None = None):
+async def create_item(item_id: int, item: Item, q: str | None = None):
     result = {"item_id": item_id, **item.dict()}
     if q:
         result.update({"q": q})

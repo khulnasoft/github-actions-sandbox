@@ -20,11 +20,11 @@ Let's imagine that loading the model can **take quite some time**, because it ha
 
 You could load it at the top level of the module/file, but that would also mean that it would **load the model** even if you are just running a simple automated test, then that test would be **slow** because it would have to wait for the model to load before being able to run an independent part of the code.
 
-That's what we'll solve, let's load the model before the requests are handled, but only right before the application starts receiving requests, not while  the code is being loaded.
+That's what we'll solve, let's load the model before the requests are handled, but only right before the application starts receiving requests, not while the code is being loaded.
 
 ## Lifespan
 
-You can define this *startup* and *shutdown* logic using the `lifespan` parameter of the `ReadyAPI` app, and a "context manager" (I'll show you what that is in a second).
+You can define this _startup_ and _shutdown_ logic using the `lifespan` parameter of the `ReadyAPI` app, and a "context manager" (I'll show you what that is in a second).
 
 Let's start with an example and then see it in detail.
 
@@ -34,12 +34,12 @@ We create an async function `lifespan()` with `yield` like this:
 {!../../../docs_src/events/tutorial003.py!}
 ```
 
-Here we are simulating the expensive *startup* operation of loading the model by putting the (fake) model function in the dictionary with machine learning models before the `yield`. This code will be executed **before** the application **starts taking requests**, during the *startup*.
+Here we are simulating the expensive _startup_ operation of loading the model by putting the (fake) model function in the dictionary with machine learning models before the `yield`. This code will be executed **before** the application **starts taking requests**, during the _startup_.
 
-And then, right after the `yield`, we unload the model. This code will be executed **after** the application **finishes handling requests**, right before the *shutdown*. This could, for example, release resources like memory or a GPU.
+And then, right after the `yield`, we unload the model. This code will be executed **after** the application **finishes handling requests**, right before the _shutdown_. This could, for example, release resources like memory or a GPU.
 
 !!! tip
-    The `shutdown` would happen when you are **stopping** the application.
+The `shutdown` would happen when you are **stopping** the application.
 
     Maybe you need to start a new version, or you just got tired of running it. 🤷
 
@@ -92,11 +92,11 @@ The `lifespan` parameter of the `ReadyAPI` app takes an **async context manager*
 ## Alternative Events (deprecated)
 
 !!! warning
-    The recommended way to handle the *startup* and *shutdown* is using the `lifespan` parameter of the `ReadyAPI` app as described above.
+The recommended way to handle the _startup_ and _shutdown_ is using the `lifespan` parameter of the `ReadyAPI` app as described above.
 
     You can probably skip this part.
 
-There's an alternative way to define this logic to be executed during *startup* and during *shutdown*.
+There's an alternative way to define this logic to be executed during _startup_ and during _shutdown_.
 
 You can define event handlers (functions) that need to be executed before the application starts up, or when the application is shutting down.
 
@@ -127,10 +127,10 @@ To add a function that should be run when the application is shutting down, decl
 Here, the `shutdown` event handler function will write a text line `"Application shutdown"` to a file `log.txt`.
 
 !!! info
-    In the `open()` function, the `mode="a"` means "append", so, the line will be added after whatever is on that file, without overwriting the previous contents.
+In the `open()` function, the `mode="a"` means "append", so, the line will be added after whatever is on that file, without overwriting the previous contents.
 
 !!! tip
-    Notice that in this case we are using a standard Python `open()` function that interacts with a file.
+Notice that in this case we are using a standard Python `open()` function that interacts with a file.
 
     So, it involves I/O (input/output), that requires "waiting" for things to be written to disk.
 
@@ -140,7 +140,7 @@ Here, the `shutdown` event handler function will write a text line `"Application
 
 ### `startup` and `shutdown` together
 
-There's a high chance that the logic for your *startup* and *shutdown* is connected, you might want to start something and then finish it, acquire a resource and then release it, etc.
+There's a high chance that the logic for your _startup_ and _shutdown_ is connected, you might want to start something and then finish it, acquire a resource and then release it, etc.
 
 Doing that in separated functions that don't share logic or variables together is more difficult as you would need to store values in global variables or similar tricks.
 
@@ -153,10 +153,10 @@ Just a technical detail for the curious nerds. 🤓
 Underneath, in the ASGI technical specification, this is part of the <a href="https://asgi.readthedocs.io/en/latest/specs/lifespan.html" class="external-link" target="_blank">Lifespan Protocol</a>, and it defines events called `startup` and `shutdown`.
 
 !!! info
-    You can read more about the Starlette `lifespan` handlers in <a href="https://www.starlette.io/lifespan/" class="external-link" target="_blank">Starlette's  Lifespan' docs</a>.
+You can read more about the Starlette `lifespan` handlers in <a href="https://www.starlette.io/lifespan/" class="external-link" target="_blank">Starlette's Lifespan' docs</a>.
 
     Including how to handle lifespan state that can be used in other areas of your code.
 
 ## Sub Applications
 
-🚨 Have in mind that these lifespan events (startup and shutdown) will only be executed for the main application, not for [Sub Applications - Mounts](./sub-applications.md){.internal-link target=_blank}.
+🚨 Have in mind that these lifespan events (startup and shutdown) will only be executed for the main application, not for [Sub Applications - Mounts](./sub-applications.md){.internal-link target=\_blank}.

@@ -1,8 +1,8 @@
 from typing import Annotated, Union
 
-from pydantic import BaseModel
-from readyapi import Depends, HTTPException, ReadyAPI, status
+from readyapi import Depends, ReadyAPI, HTTPException, status
 from readyapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
+from pydantic import BaseModel
 
 fake_users_db = {
     "johndoe": {
@@ -67,7 +67,7 @@ async def get_current_user(token: Annotated[str, Depends(oauth2_scheme)]):
 
 
 async def get_current_active_user(
-    current_user: Annotated[User, Depends(get_current_user)],
+    current_user: Annotated[User, Depends(get_current_user)]
 ):
     if current_user.disabled:
         raise HTTPException(status_code=400, detail="Inactive user")
@@ -89,6 +89,6 @@ async def login(form_data: Annotated[OAuth2PasswordRequestForm, Depends()]):
 
 @app.get("/users/me")
 async def read_users_me(
-    current_user: Annotated[User, Depends(get_current_active_user)],
+    current_user: Annotated[User, Depends(get_current_active_user)]
 ):
     return current_user

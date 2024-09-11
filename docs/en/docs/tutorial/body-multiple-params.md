@@ -45,11 +45,11 @@ And you can also declare body parameters as optional, by setting the default to 
     ```
 
 !!! note
-    Notice that, in this case, the `item` that would be taken from the body is optional. As it has a `None` default value.
+Notice that, in this case, the `item` that would be taken from the body is optional. As it has a `None` default value.
 
 ## Multiple body parameters
 
-In the previous example, the *path operations* would expect a JSON body with the attributes of an `Item`, like:
+In the previous example, the _path operations_ would expect a JSON body with the attributes of an `Item`, like:
 
 ```JSON
 {
@@ -94,8 +94,7 @@ So, it will then use the parameter names as keys (field names) in the body, and 
 ```
 
 !!! note
-    Notice that even though the `item` was declared the same way as before, it is now expected to be inside of the body with a key `item`.
-
+Notice that even though the `item` was declared the same way as before, it is now expected to be inside of the body with a key `item`.
 
 **ReadyAPI** will do the automatic conversion from the request, so that the parameter `item` receives it's specific content and the same for `user`.
 
@@ -222,7 +221,7 @@ For example:
     ```
 
 !!! info
-    `Body` also has all the same extra validation and metadata parameters as `Query`,`Path` and others you will see later.
+`Body` also has all the same extra validation and metadata parameters as `Query`,`Path` and others you will see later.
 
 ## Embed a single body parameter
 
@@ -300,9 +299,9 @@ instead of:
 
 ## Recap
 
-You can add multiple body parameters to your *path operation function*, even though a request can only have a single body.
+You can add multiple body parameters to your _path operation function_, even though a request can only have a single body.
 
-But **ReadyAPI** will handle it, give you the correct data in your function, and validate and document the correct schema in the *path operation*.
+But **ReadyAPI** will handle it, give you the correct data in your function, and validate and document the correct schema in the _path operation_.
 
 You can also declare singular values to be received as part of the body.
 

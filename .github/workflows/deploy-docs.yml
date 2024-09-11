@@ -20,7 +20,6 @@ jobs:
           rm -rf ./site
           mkdir ./site
       - uses: actions/download-artifact@v4
-        id: download
         with:
           path: ./site/
           pattern: docs-site-*
@@ -32,7 +31,8 @@ jobs:
       #   with:
       #     limit-access-to-actor: true
       - name: Deploy to Cloudflare Pages
-        if: steps.download.outputs.download-path
+        # hashFiles returns an empty string if there are no files
+        if: hashFiles('./site/*')
         id: deploy
         uses: cloudflare/pages-action@v1
         with:

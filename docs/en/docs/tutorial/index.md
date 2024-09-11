@@ -55,7 +55,7 @@ $ pip install "readyapi[all]"
 ...that also includes `uvicorn`, that you can use as the server that runs your code.
 
 !!! note
-    You can also install it part by part.
+You can also install it part by part.
 
     This is what you would probably do once you want to deploy your application to production:
 

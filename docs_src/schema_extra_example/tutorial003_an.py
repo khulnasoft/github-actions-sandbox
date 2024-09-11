@@ -1,7 +1,7 @@
 from typing import Union
 
-from pydantic import BaseModel
 from readyapi import Body, ReadyAPI
+from pydantic import BaseModel
 from typing_extensions import Annotated
 
 app = ReadyAPI()
@@ -20,14 +20,12 @@ async def update_item(
     item: Annotated[
         Item,
         Body(
-            examples=[
-                {
-                    "name": "Foo",
-                    "description": "A very nice Item",
-                    "price": 35.4,
-                    "tax": 3.2,
-                }
-            ],
+            example={
+                "name": "Foo",
+                "description": "A very nice Item",
+                "price": 35.4,
+                "tax": 3.2,
+            },
         ),
     ],
 ):

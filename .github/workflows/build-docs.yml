@@ -17,22 +17,22 @@ jobs:
     outputs:
       docs: ${{ steps.filter.outputs.docs }}
     steps:
-    - uses: actions/checkout@v3
-    # For pull requests it's not necessary to checkout the code but for the main branch it is
-    - uses: dorny/paths-filter@v2
-      id: filter
-      with:
-        filters: |
-          docs:
-            - README.md
-            - docs/**
-            - docs_src/**
-            - requirements-docs.txt
-            - pyproject.toml
-            - mkdocs.yml
-            - mkdocs.insiders.yml
-            - .github/workflows/build-docs.yml
-            - .github/workflows/deploy-docs.yml
+      - uses: actions/checkout@v3
+      # For pull requests it's not necessary to checkout the code but for the main branch it is
+      - uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          filters: |
+            docs:
+              - README.md
+              - docs/**
+              - docs_src/**
+              - requirements-docs.txt
+              - pyproject.toml
+              - mkdocs.yml
+              - mkdocs.insiders.yml
+              - .github/workflows/build-docs.yml
+              - .github/workflows/deploy-docs.yml
   langs:
     needs:
       - changes
@@ -99,7 +99,7 @@ jobs:
         run: pip install -r requirements-docs.txt
       # - name: Install Material for MkDocs Insiders
       #   if: ( github.event_name != 'pull_request' || github.event.pull_request.head.repo.fork == false ) && steps.cache.outputs.cache-hit != 'true'
-      #   run: pip install git+https://${{ secrets.SANDBOX_TOKEN }}@github.com/squidfunk/mkdocs-material-insiders.git
+      #   run: pip install git+https://${{ secrets.ORG_REPO_TOKEN }}@github.com/squidfunk/mkdocs-material-insiders.git
       - name: Update Languages
         run: python ./scripts/docs.py update-languages
       - name: Build Docs
@@ -113,9 +113,10 @@ jobs:
         with:
           name: docs-site-${{ matrix.lang }}
           path: ./site/**
+          include-hidden-files: true
 
   # https://github.com/marketplace/actions/alls-green#why
-  docs-all-green:  # This job does nothing and is only used for the branch protection
+  docs-all-green: # This job does nothing and is only used for the branch protection
     if: always()
     needs:
       - build-docs

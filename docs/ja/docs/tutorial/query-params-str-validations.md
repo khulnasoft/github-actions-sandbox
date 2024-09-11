@@ -8,15 +8,16 @@
 {!../../../docs_src/query_params_str_validations/tutorial001.py!}
 ```
 
-クエリパラメータ `q` は `Optional[str]` 型で、`None` を許容する `str` 型を意味しており、デフォルトは `None` です。そのため、ReadyAPIはそれが必須ではないと理解します。
+クエリパラメータ `q` は `Optional[str]` 型で、`None` を許容する `str` 型を意味しており、デフォルトは `None` です。そのため、ReadyAPI はそれが必須ではないと理解します。
 
 !!! note "備考"
-    ReadyAPIは、 `q` はデフォルト値が `=None` であるため、必須ではないと理解します。
+ReadyAPI は、 `q` はデフォルト値が `=None` であるため、必須ではないと理解します。
 
     `Optional[str]` における `Optional` はReadyAPIには利用されませんが、エディターによるより良いサポートとエラー検出を可能にします。
+
 ## バリデーションの追加
 
-`q`はオプショナルですが、もし値が渡されてきた場合には、**50文字を超えないこと**を強制してみましょう。
+`q`はオプショナルですが、もし値が渡されてきた場合には、**50 文字を超えないこと**を強制してみましょう。
 
 ### `Query`のインポート
 
@@ -28,7 +29,7 @@
 
 ## デフォルト値として`Query`を使用
 
-パラメータのデフォルト値として使用し、パラメータ`max_length`を50に設定します:
+パラメータのデフォルト値として使用し、パラメータ`max_length`を 50 に設定します:
 
 ```Python hl_lines="9"
 {!../../../docs_src/query_params_str_validations/tutorial002.py!}
@@ -51,7 +52,7 @@ q: Optional[str] = None
 しかし、これはクエリパラメータとして明示的に宣言しています。
 
 !!! info "情報"
-    ReadyAPIは以下の部分を気にすることを覚えておいてください:
+ReadyAPI は以下の部分を気にすることを覚えておいてください:
 
     ```Python
     = None
@@ -73,7 +74,7 @@ q: Optional[str] = None
 q: Union[str, None] = Query(default=None, max_length=50)
 ```
 
-これにより、データを検証し、データが有効でない場合は明確なエラーを表示し、OpenAPIスキーマの　*path operation* にパラメータを記載します。
+これにより、データを検証し、データが有効でない場合は明確なエラーを表示し、OpenAPI スキーマの　*path operation* にパラメータを記載します。
 
 ## バリデーションをさらに追加する
 
@@ -93,9 +94,9 @@ q: Union[str, None] = Query(default=None, max_length=50)
 
 この特定の正規表現は受け取ったパラメータの値をチェックします:
 
-* `^`: は、これ以降の文字で始まり、これより以前には文字はありません。
-* `fixedquery`: は、正確な`fixedquery`を持っています.
-* `$`: で終わる場合、`fixedquery`以降には文字はありません.
+- `^`: は、これ以降の文字で始まり、これより以前には文字はありません。
+- `fixedquery`: は、正確な`fixedquery`を持っています.
+- `$`: で終わる場合、`fixedquery`以降には文字はありません.
 
 もしこれらすべての **正規表現**のアイデアについて迷っていても、心配しないでください。多くの人にとって難しい話題です。正規表現を必要としなくても、まだ、多くのことができます。
 
@@ -112,7 +113,7 @@ q: Union[str, None] = Query(default=None, max_length=50)
 ```
 
 !!! note "備考"
-    デフォルト値を指定すると、パラメータは任意になります。
+デフォルト値を指定すると、パラメータは任意になります。
 
 ## 必須にする
 
@@ -141,7 +142,7 @@ q: Union[str, None] = Query(default=None, min_length=3)
 ```
 
 !!! info "情報"
-    これまで`...`を見たことがない方へ: これは特殊な単一値です。<a href="https://docs.python.org/3/library/constants.html#Ellipsis" class="external-link" target="_blank">Pythonの一部であり、"Ellipsis"と呼ばれています</a>。
+これまで`...`を見たことがない方へ: これは特殊な単一値です。<a href="https://docs.python.org/3/library/constants.html#Ellipsis" class="external-link" target="_blank">Python の一部であり、"Ellipsis"と呼ばれています</a>。
 
 これは **ReadyAPI** にこのパラメータが必須であることを知らせます。
 
@@ -149,21 +150,21 @@ q: Union[str, None] = Query(default=None, min_length=3)
 
 クエリパラメータを明示的に`Query`で宣言した場合、値のリストを受け取るように宣言したり、複数の値を受け取るように宣言したりすることもできます。
 
-例えば、URL内に複数回出現するクエリパラメータ`q`を宣言するには以下のように書きます:
+例えば、URL 内に複数回出現するクエリパラメータ`q`を宣言するには以下のように書きます:
 
 ```Python hl_lines="9"
 {!../../../docs_src/query_params_str_validations/tutorial011.py!}
 ```
 
-そしてURLは以下です:
+そして URL は以下です:
 
 ```
 http://localhost:8000/items/?q=foo&q=bar
 ```
 
-複数の*クエリパラメータ*の値`q`（`foo`と`bar`）を*path operation関数*内で*関数パラメータ*`q`としてPythonの`list`を受け取ることになります。
+複数の*クエリパラメータ*の値`q`（`foo`と`bar`）を*path operation 関数*内で*関数パラメータ*`q`として Python の`list`を受け取ることになります。
 
-そのため、このURLのレスポンスは以下のようになります:
+そのため、この URL のレスポンスは以下のようになります:
 
 ```JSON
 {
@@ -175,9 +176,9 @@ http://localhost:8000/items/?q=foo&q=bar
 ```
 
 !!! tip "豆知識"
-    上述の例のように、`list`型のクエリパラメータを宣言するには明示的に`Query`を使用する必要があります。そうしない場合、リクエストボディと解釈されます。
+上述の例のように、`list`型のクエリパラメータを宣言するには明示的に`Query`を使用する必要があります。そうしない場合、リクエストボディと解釈されます。
 
-対話的APIドキュメントは複数の値を許可するために自動的に更新されます。
+対話的 API ドキュメントは複数の値を許可するために自動的に更新されます。
 
 <img src="https://readyapi.khulnasoft.com/img/tutorial/query-params-str-validations/image02.png">
 
@@ -189,7 +190,7 @@ http://localhost:8000/items/?q=foo&q=bar
 {!../../../docs_src/query_params_str_validations/tutorial012.py!}
 ```
 
-以下のURLを開くと:
+以下の URL を開くと:
 
 ```
 http://localhost:8000/items/
@@ -215,7 +216,7 @@ http://localhost:8000/items/
 ```
 
 !!! note "備考"
-    この場合、ReadyAPIはリストの内容をチェックしないことを覚えておいてください。
+この場合、ReadyAPI はリストの内容をチェックしないことを覚えておいてください。
 
     例えば`List[int]`はリストの内容が整数であるかどうかをチェックします(そして、文書化します)。しかし`list`だけではそうしません。
 
@@ -223,10 +224,10 @@ http://localhost:8000/items/
 
 パラメータに関する情報をさらに追加することができます。
 
-その情報は、生成されたOpenAPIに含まれ、ドキュメントのユーザーインターフェースや外部のツールで使用されます。
+その情報は、生成された OpenAPI に含まれ、ドキュメントのユーザーインターフェースや外部のツールで使用されます。
 
 !!! note "備考"
-    ツールによってOpenAPIのサポートのレベルが異なる可能性があることを覚えておいてください。
+ツールによって OpenAPI のサポートのレベルが異なる可能性があることを覚えておいてください。
 
     その中には、宣言されたすべての追加情報が表示されていないものもあるかもしれませんが、ほとんどの場合、不足している機能はすでに開発の計画がされています。
 
@@ -252,7 +253,7 @@ http://localhost:8000/items/
 http://127.0.0.1:8000/items/?item-query=foobaritems
 ```
 
-しかし、`item-query`は有効なPythonの変数名ではありません。
+しかし、`item-query`は有効な Python の変数名ではありません。
 
 最も近いのは`item_query`でしょう。
 
@@ -286,16 +287,16 @@ http://127.0.0.1:8000/items/?item-query=foobaritems
 
 一般的なバリデーションとメタデータ:
 
-* `alias`
-* `title`
-* `description`
-* `deprecated`
+- `alias`
+- `title`
+- `description`
+- `deprecated`
 
 文字列のためのバリデーション:
 
-* `min_length`
-* `max_length`
-* `regex`
+- `min_length`
+- `max_length`
+- `regex`
 
 この例では、`str`の値のバリデーションを宣言する方法を見てきました。
 

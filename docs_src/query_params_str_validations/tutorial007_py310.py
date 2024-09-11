@@ -1,11 +1,11 @@
-from readyapi import Query, ReadyAPI
+from readyapi import ReadyAPI, Query
 
 app = ReadyAPI()
 
 
 @app.get("/items/")
 async def read_items(
-    q: str | None = Query(default=None, title="Query string", min_length=3),
+    q: str | None = Query(default=None, title="Query string", min_length=3)
 ):
     results = {"items": [{"item_id": "Foo"}, {"item_id": "Bar"}]}
     if q:

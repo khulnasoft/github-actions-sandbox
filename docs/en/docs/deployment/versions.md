@@ -34,7 +34,7 @@ If you use any other tool to manage your installations, like Poetry, Pipenv, or 
 
 ## Available versions
 
-You can see the available versions (e.g. to check what is the current latest) in the [Release Notes](../release-notes.md){.internal-link target=_blank}.
+You can see the available versions (e.g. to check what is the current latest) in the [Release Notes](../release-notes.md){.internal-link target=\_blank}.
 
 ## About versions
 
@@ -43,7 +43,7 @@ Following the Semantic Versioning conventions, any version below `1.0.0` could p
 ReadyAPI also follows the convention that any "PATCH" version change is for bug fixes and non-breaking changes.
 
 !!! tip
-    The "PATCH" is the last number, for example, in `0.2.3`, the PATCH version is `3`.
+The "PATCH" is the last number, for example, in `0.2.3`, the PATCH version is `3`.
 
 So, you should be able to pin to a version like:
 
@@ -54,13 +54,13 @@ readyapi>=0.45.0,<0.46.0
 Breaking changes and new features are added in "MINOR" versions.
 
 !!! tip
-    The "MINOR" is the number in the middle, for example, in `0.2.3`, the MINOR version is `2`.
+The "MINOR" is the number in the middle, for example, in `0.2.3`, the MINOR version is `2`.
 
 ## Upgrading the ReadyAPI versions
 
 You should add tests for your app.
 
-With **ReadyAPI** it's very easy (thanks to Starlette), check the docs: [Testing](../tutorial/testing.md){.internal-link target=_blank}
+With **ReadyAPI** it's very easy (thanks to Starlette), check the docs: [Testing](../tutorial/testing.md){.internal-link target=\_blank}
 
 After you have tests, then you can upgrade the **ReadyAPI** version to a more recent one, and make sure that all your code is working correctly by running your tests.
 

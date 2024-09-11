@@ -1,6 +1,6 @@
 # ReadyAPI People
 
-ReadyAPIには、様々なバックグラウンドの人々を歓迎する素晴らしいコミュニティがあります。
+ReadyAPI には、様々なバックグラウンドの人々を歓迎する素晴らしいコミュニティがあります。
 
 ## Creator - Maintainer
 
@@ -9,6 +9,7 @@ ReadyAPIには、様々なバックグラウンドの人々を歓迎する素晴
 これが私です:
 
 {% if people %}
+
 <div class="user-list user-list-center">
 {% for user in people.maintainers %}
 
@@ -19,7 +20,7 @@ ReadyAPIには、様々なバックグラウンドの人々を歓迎する素晴
 
 {% endif %}
 
-私は **ReadyAPI** の作成者および Maintainer です。詳しくは [ReadyAPIを応援 - ヘルプの入手 - 開発者とつながる](help-readyapi.md#開発者とつながる){.internal-link target=_blank} に記載しています。
+私は **ReadyAPI** の作成者および Maintainer です。詳しくは [ReadyAPI を応援 - ヘルプの入手 - 開発者とつながる](help-readyapi.md#開発者とつながる){.internal-link target=\_blank} に記載しています。
 
 ...ところで、ここではコミュニティを紹介したいと思います。
 
@@ -29,17 +30,18 @@ ReadyAPIには、様々なバックグラウンドの人々を歓迎する素晴
 
 紹介するのは次のような人々です:
 
-* [GitHub issuesで他の人を助ける](help-readyapi.md#help-others-with-issues-in-github){.internal-link target=_blank}。
-* [プルリクエストをする](help-readyapi.md#create-a-pull-request){.internal-link target=_blank}。
-* プルリクエストのレビューをする ([特に翻訳に重要](contributing.md#translations){.internal-link target=_blank})。
+- [GitHub issues で他の人を助ける](help-readyapi.md#help-others-with-issues-in-github){.internal-link target=\_blank}。
+- [プルリクエストをする](help-readyapi.md#create-a-pull-request){.internal-link target=\_blank}。
+- プルリクエストのレビューをする ([特に翻訳に重要](contributing.md#translations){.internal-link target=\_blank})。
 
 彼らに大きな拍手を。👏 🙇
 
 ## 先月最もアクティブだったユーザー
 
-彼らは、先月の[GitHub issuesで最も多くの人を助けた](help-readyapi.md#help-others-with-issues-in-github){.internal-link target=_blank}ユーザーです。☕
+彼らは、先月の[GitHub issues で最も多くの人を助けた](help-readyapi.md#help-others-with-issues-in-github){.internal-link target=\_blank}ユーザーです。☕
 
 {% if people %}
+
 <div class="user-list user-list-center">
 {% for user in people.last_month_active %}
 
@@ -53,11 +55,12 @@ ReadyAPIには、様々なバックグラウンドの人々を歓迎する素晴
 
 **ReadyAPI experts** を紹介します。🤓
 
-彼らは、*これまでに* [GitHub issuesで最も多くの人を助けた](help-readyapi.md#help-others-with-issues-in-github){.internal-link target=_blank}ユーザーです。
+彼らは、_これまでに_ [GitHub issues で最も多くの人を助けた](help-readyapi.md#help-others-with-issues-in-github){.internal-link target=\_blank}ユーザーです。
 
-多くの人を助けることでexpertsであると示されています。✨
+多くの人を助けることで experts であると示されています。✨
 
 {% if people %}
+
 <div class="user-list user-list-center">
 {% for user in people.experts %}
 
@@ -71,11 +74,12 @@ ReadyAPIには、様々なバックグラウンドの人々を歓迎する素晴
 
 **Top Contributors** を紹介します。👷
 
-彼らは、*マージされた* [最も多くのプルリクエストを作成した](help-readyapi.md#create-a-pull-request){.internal-link target=_blank}ユーザーです。
+彼らは、_マージされた_ [最も多くのプルリクエストを作成した](help-readyapi.md#create-a-pull-request){.internal-link target=\_blank}ユーザーです。
 
 ソースコード、ドキュメント、翻訳などに貢献してくれました。📦
 
 {% if people %}
+
 <div class="user-list user-list-center">
 {% for user in people.top_contributors %}
 
@@ -85,7 +89,7 @@ ReadyAPIには、様々なバックグラウンドの人々を歓迎する素晴
 </div>
 {% endif %}
 
-他にもたくさん (100人以上) の contributors がいます。<a href="https://github.com/khulnasoft/readyapi/graphs/contributors" class="external-link" target="_blank">ReadyAPI GitHub Contributors ページ</a>ですべての contributors を確認できます。👷
+他にもたくさん (100 人以上) の contributors がいます。<a href="https://github.com/khulnasoft/readyapi/graphs/contributors" class="external-link" target="_blank">ReadyAPI GitHub Contributors ページ</a>ですべての contributors を確認できます。👷
 
 ## Top Reviewers
 
@@ -93,13 +97,14 @@ ReadyAPIには、様々なバックグラウンドの人々を歓迎する素晴
 
 ### 翻訳のレビュー
 
-私は少しの言語しか話せません (もしくはあまり上手ではありません😅)。したがって、reviewers は、ドキュメントの[**翻訳を承認する権限**](contributing.md#translations){.internal-link target=_blank}を持っています。それらがなければ、いくつかの言語のドキュメントはなかったでしょう。
+私は少しの言語しか話せません (もしくはあまり上手ではありません 😅)。したがって、reviewers は、ドキュメントの[**翻訳を承認する権限**](contributing.md#translations){.internal-link target=\_blank}を持っています。それらがなければ、いくつかの言語のドキュメントはなかったでしょう。
 
 ---
 
-**Top Reviewers** 🕵️は、他の人からのプルリクエストのほとんどをレビューし、コード、ドキュメント、特に**翻訳**の品質を保証しています。
+**Top Reviewers** 🕵️ は、他の人からのプルリクエストのほとんどをレビューし、コード、ドキュメント、特に**翻訳**の品質を保証しています。
 
 {% if people %}
+
 <div class="user-list user-list-center">
 {% for user in people.top_reviewers %}
 

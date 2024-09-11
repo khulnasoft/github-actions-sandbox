@@ -1,7 +1,7 @@
 from typing import Union
 
-from pydantic import BaseModel
 from readyapi import ReadyAPI
+from pydantic import BaseModel
 
 app = ReadyAPI()
 
@@ -12,11 +12,11 @@ class BaseItem(BaseModel):
 
 
 class CarItem(BaseItem):
-    type: str = "car"
+    type = "car"
 
 
 class PlaneItem(BaseItem):
-    type: str = "plane"
+    type = "plane"
     size: int
 
 

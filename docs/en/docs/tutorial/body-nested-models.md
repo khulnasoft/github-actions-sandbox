@@ -38,8 +38,8 @@ But in Python versions before 3.9 (3.6 and above), you first need to import `Lis
 
 To declare types that have type parameters (internal types), like `list`, `dict`, `tuple`:
 
-* If you are in a Python version lower than 3.9, import their equivalent version from the `typing` module
-* Pass the internal type(s) as "type parameters" using square brackets: `[` and `]`
+- If you are in a Python version lower than 3.9, import their equivalent version from the `typing` module
+- Pass the internal type(s) as "type parameters" using square brackets: `[` and `]`
 
 In Python 3.9 it would be:
 
@@ -183,10 +183,10 @@ This would mean that **ReadyAPI** would expect a body similar to:
 
 Again, doing just that declaration, with **ReadyAPI** you get:
 
-* Editor support (completion, etc), even for nested models
-* Data conversion
-* Data validation
-* Automatic documentation
+- Editor support (completion, etc), even for nested models
+- Data conversion
+- Data validation
+- Automatic documentation
 
 ## Special types and validation
 
@@ -265,7 +265,7 @@ This will expect (convert, validate, document, etc) a JSON body like:
 ```
 
 !!! info
-    Notice how the `images` key now has a list of image objects.
+Notice how the `images` key now has a list of image objects.
 
 ## Deeply nested models
 
@@ -290,7 +290,7 @@ You can define arbitrarily deeply nested models:
     ```
 
 !!! info
-    Notice how `Offer` has a list of `Item`s, which in turn have an optional list of `Image`s
+Notice how `Offer` has a list of `Item`s, which in turn have an optional list of `Image`s
 
 ## Bodies of pure lists
 
@@ -361,7 +361,7 @@ In this case, you would accept any `dict` as long as it has `int` keys with `flo
     ```
 
 !!! tip
-    Have in mind that JSON only supports `str` as keys.
+Have in mind that JSON only supports `str` as keys.
 
     But Pydantic has automatic data conversion.
 
@@ -375,8 +375,8 @@ With **ReadyAPI** you have the maximum flexibility provided by Pydantic models, 
 
 But with all the benefits:
 
-* Editor support (completion everywhere!)
-* Data conversion (a.k.a. parsing / serialization)
-* Data validation
-* Schema documentation
-* Automatic docs
+- Editor support (completion everywhere!)
+- Data conversion (a.k.a. parsing / serialization)
+- Data validation
+- Schema documentation
+- Automatic docs

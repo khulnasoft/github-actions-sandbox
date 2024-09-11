@@ -25,7 +25,7 @@ Puedes declarar el tipo de un parámetro de path en la función usando las anota
 En este caso, `item_id` es declarado como un `int`.
 
 !!! check "Revisa"
-    Esto te dará soporte en el editor dentro de tu función, con chequeos de errores, autocompletado, etc.
+Esto te dará soporte en el editor dentro de tu función, con chequeos de errores, autocompletado, etc.
 
 ## <abbr title="también conocido en inglés como: serialization, parsing, marshalling">Conversión</abbr> de datos
 
@@ -36,7 +36,7 @@ Si corres este ejemplo y abres tu navegador en <a href="http://127.0.0.1:8000/it
 ```
 
 !!! check "Revisa"
-    Observa que el valor que recibió (y devolvió) tu función es `3`, como un Python `int`, y no un string `"3"`.
+Observa que el valor que recibió (y devolvió) tu función es `3`, como un Python `int`, y no un string `"3"`.
 
     Entonces, con esa declaración de tipos **ReadyAPI** te da <abbr title="convertir el string que viene de un HTTP request a datos de Python">"parsing"</abbr> automático del request.
 
@@ -64,7 +64,7 @@ debido a que el parámetro de path `item_id` tenía el valor `"foo"`, que no es 
 El mismo error aparecería si pasaras un `float` en vez de un `int` como en: <a href="http://127.0.0.1:8000/items/4.2" class="external-link" target="_blank">http://127.0.0.1:8000/items/4.2</a>
 
 !!! check "Revisa"
-    Así, con la misma declaración de tipo de Python, **ReadyAPI** te da validación de datos.
+Así, con la misma declaración de tipo de Python, **ReadyAPI** te da validación de datos.
 
     Observa que el error también muestra claramente el punto exacto en el que no pasó la validación.
 
@@ -77,7 +77,7 @@ Cuando abras tu navegador en <a href="http://127.0.0.1:8000/docs" class="externa
 <img src="/img/tutorial/path-params/image01.png">
 
 !!! check "Revisa"
-    Nuevamente, con la misma declaración de tipo de Python, **ReadyAPI** te da documentación automática e interactiva (integrándose con Swagger UI)
+Nuevamente, con la misma declaración de tipo de Python, **ReadyAPI** te da documentación automática e interactiva (integrándose con Swagger UI)
 
     Observa que el parámetro de path está declarado como un integer.
 
@@ -101,13 +101,13 @@ Exploraremos varios de estos tipos en los próximos capítulos del tutorial.
 
 ## El orden importa
 
-Cuando creas *operaciones de path* puedes encontrarte con situaciones en las que tengas un path fijo.
+Cuando creas _operaciones de path_ puedes encontrarte con situaciones en las que tengas un path fijo.
 
 Digamos algo como `/users/me` que sea para obtener datos del usuario actual.
 
 ... y luego puedes tener el path `/users/{user_id}` para obtener los datos sobre un usuario específico asociados a un ID de usuario.
 
-Porque las *operaciones de path* son evaluadas en orden, tienes que asegurarte de que el path para `/users/me` sea declarado antes que el path para `/users/{user_id}`:
+Porque las _operaciones de path_ son evaluadas en orden, tienes que asegurarte de que el path para `/users/me` sea declarado antes que el path para `/users/{user_id}`:
 
 ```Python hl_lines="6  11"
 {!../../../docs_src/path_params/tutorial003.py!}
@@ -117,7 +117,7 @@ De otra manera el path para `/users/{user_id}` coincidiría también con `/users
 
 ## Valores predefinidos
 
-Si tienes una *operación de path* que recibe un *parámetro de path* pero quieres que los valores posibles del *parámetro de path* sean predefinidos puedes usar un <abbr title="Enumeration">`Enum`</abbr> estándar de Python.
+Si tienes una _operación de path_ que recibe un _parámetro de path_ pero quieres que los valores posibles del _parámetro de path_ sean predefinidos puedes usar un <abbr title="Enumeration">`Enum`</abbr> estándar de Python.
 
 ### Crea una clase `Enum`
 
@@ -132,14 +132,14 @@ Luego crea atributos de clase con valores fijos, que serán los valores disponib
 ```
 
 !!! info "Información"
-    Las <a href="https://docs.python.org/3/library/enum.html" class="external-link" target="_blank">Enumerations (o enums) están disponibles en Python</a> desde la versión 3.4.
+Las <a href="https://docs.python.org/3/library/enum.html" class="external-link" target="_blank">Enumerations (o enums) están disponibles en Python</a> desde la versión 3.4.
 
 !!! tip "Consejo"
-    Si lo estás dudando, "AlexNet", "ResNet", y "LeNet" son solo nombres de <abbr title="Tecnicamente, arquitecturas de modelos de Deep Learning">modelos</abbr> de Machine Learning.
+Si lo estás dudando, "AlexNet", "ResNet", y "LeNet" son solo nombres de <abbr title="Tecnicamente, arquitecturas de modelos de Deep Learning">modelos</abbr> de Machine Learning.
 
-### Declara un *parámetro de path*
+### Declara un _parámetro de path_
 
-Luego, crea un *parámetro de path* con anotaciones de tipos usando la clase enum que creaste (`ModelName`):
+Luego, crea un _parámetro de path_ con anotaciones de tipos usando la clase enum que creaste (`ModelName`):
 
 ```Python hl_lines="16"
 {!../../../docs_src/path_params/tutorial005.py!}
@@ -147,23 +147,23 @@ Luego, crea un *parámetro de path* con anotaciones de tipos usando la clase enu
 
 ### Revisa la documentación
 
-Debido a que los valores disponibles para el *parámetro de path* están predefinidos, la documentación interactiva los puede mostrar bien:
+Debido a que los valores disponibles para el _parámetro de path_ están predefinidos, la documentación interactiva los puede mostrar bien:
 
 <img src="/img/tutorial/path-params/image03.png">
 
-### Trabajando con los *enumerations* de Python
+### Trabajando con los _enumerations_ de Python
 
-El valor del *parámetro de path* será un *enumeration member*.
+El valor del _parámetro de path_ será un _enumeration member_.
 
-#### Compara *enumeration members*
+#### Compara _enumeration members_
 
-Puedes compararlo con el *enumeration member* en el enum (`ModelName`) que creaste:
+Puedes compararlo con el _enumeration member_ en el enum (`ModelName`) que creaste:
 
 ```Python hl_lines="17"
 {!../../../docs_src/path_params/tutorial005.py!}
 ```
 
-#### Obtén el *enumeration value*
+#### Obtén el _enumeration value_
 
 Puedes obtener el valor exacto (un `str` en este caso) usando `model_name.value`, o en general, `your_enum_member.value`:
 
@@ -172,11 +172,11 @@ Puedes obtener el valor exacto (un `str` en este caso) usando `model_name.value`
 ```
 
 !!! tip "Consejo"
-    También podrías obtener el valor `"lenet"` con `ModelName.lenet.value`.
+También podrías obtener el valor `"lenet"` con `ModelName.lenet.value`.
 
-#### Devuelve *enumeration members*
+#### Devuelve _enumeration members_
 
-Puedes devolver *enum members* desde tu *operación de path* inclusive en un body de JSON anidado (por ejemplo, un `dict`).
+Puedes devolver _enum members_ desde tu _operación de path_ inclusive en un body de JSON anidado (por ejemplo, un `dict`).
 
 Ellos serán convertidos a sus valores correspondientes (strings en este caso) antes de devolverlos al cliente:
 
@@ -195,7 +195,7 @@ En tu cliente obtendrás una respuesta en JSON como:
 
 ## Parámetros de path parameters que contienen paths
 
-Digamos que tienes una *operación de path* con un path `/files/{file_path}`.
+Digamos que tienes una _operación de path_ con un path `/files/{file_path}`.
 
 Pero necesitas que el mismo `file_path` contenga un path como `home/johndoe/myfile.txt`.
 
@@ -203,7 +203,7 @@ Entonces, la URL para ese archivo sería algo como: `/files/home/johndoe/myfile.
 
 ### Soporte de OpenAPI
 
-OpenAPI no soporta una manera de declarar un *parámetro de path* que contenga un path, dado que esto podría llevar a escenarios que son difíciles de probar y definir.
+OpenAPI no soporta una manera de declarar un _parámetro de path_ que contenga un path, dado que esto podría llevar a escenarios que son difíciles de probar y definir.
 
 Sin embargo, lo puedes hacer en **ReadyAPI** usando una de las herramientas internas de Starlette.
 
@@ -211,7 +211,7 @@ La documentación seguirá funcionando, aunque no añadirá ninguna información
 
 ### Convertidor de path
 
-Usando una opción directamente desde Starlette puedes declarar un *parámetro de path* que contenga un path usando una URL como:
+Usando una opción directamente desde Starlette puedes declarar un _parámetro de path_ que contenga un path usando una URL como:
 
 ```
 /files/{file_path:path}
@@ -226,7 +226,7 @@ Entonces lo puedes usar con:
 ```
 
 !!! tip "Consejo"
-    Podrías necesitar que el parámetro contenga `/home/johndoe/myfile.txt` con un slash inicial (`/`).
+Podrías necesitar que el parámetro contenga `/home/johndoe/myfile.txt` con un slash inicial (`/`).
 
     En este caso la URL sería `/files//home/johndoe/myfile.txt` con un slash doble (`//`) entre `files` y `home`.
 
@@ -234,11 +234,11 @@ Entonces lo puedes usar con:
 
 Con **ReadyAPI**, usando declaraciones de tipo de Python intuitivas y estándares, obtienes:
 
-* Soporte en el editor: chequeos de errores, auto-completado, etc.
-* "<abbr title="convertir el string que viene de un HTTP request a datos de Python">Parsing</abbr>" de datos
-* Validación de datos
-* Anotación de la API y documentación automática
+- Soporte en el editor: chequeos de errores, auto-completado, etc.
+- "<abbr title="convertir el string que viene de un HTTP request a datos de Python">Parsing</abbr>" de datos
+- Validación de datos
+- Anotación de la API y documentación automática
 
 Solo tienes que declararlos una vez.
 
-Esa es probablemente la principal ventaja visible de **ReadyAPI**  sobre otros frameworks alternativos (aparte del rendimiento puro).
+Esa es probablemente la principal ventaja visible de **ReadyAPI** sobre otros frameworks alternativos (aparte del rendimiento puro).
