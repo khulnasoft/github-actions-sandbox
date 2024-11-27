@@ -14,7 +14,7 @@ import mkdocs.config
 import mkdocs.utils
 import cligenius
 import yaml
-from jinja2 import Template
+from jinja2 import Environment, select_autoescape
 
 app = cligenius.Cligenius()
 
@@ -236,7 +236,8 @@ def generate_readme_content():
         raise RuntimeError("Couldn't auto-generate sponsors section")
     pre_end = match_start.end()
     post_start = match_end.start()
-    template = Template(index_sponsors_template)
+    env = Environment(autoescape=select_autoescape(['html', 'xml']))
+    template = env.from_string(index_sponsors_template)
     message = template.render(sponsors=sponsors)
     pre_content = content[:pre_end]
     post_content = content[post_start:]
